@@ -13,7 +13,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
 
-size = 64
+size = 72
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
@@ -21,7 +21,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
 
-size = 64
+size = 48
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
@@ -57,7 +57,7 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Margin", "custom_fonts" ]
 
 [node name="MessageLabel" type="Label" parent="." index="1"]
 
@@ -65,10 +65,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -194.0
-margin_top = -185.0
-margin_right = 198.0
-margin_bottom = 185.0
+margin_left = -200.0
+margin_top = -150.0
+margin_right = 200.0
+margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -76,16 +76,23 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "Dodge the creeps!"
+text = "Dodge the
+Creeps!"
 align = 1
 valign = 1
-autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Margin", "custom_fonts" ]
 
-[node name="StartButton" type="Button" parent="." index="2"]
+[node name="MessageTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="StartButton" type="Button" parent="." index="3"]
 
 anchor_left = 0.5
 anchor_top = 1.0
@@ -110,13 +117,10 @@ group = null
 text = "Start"
 flat = false
 align = 1
-_sections_unfolded = [ "Margin", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Margin", "Visibility", "custom_fonts" ]
 
-[node name="MessageTimer" type="Timer" parent="." index="3"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
 
-process_mode = 1
-wait_time = 2.0
-one_shot = true
-autostart = false
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 
 
