@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://LifeBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EnergyBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://BombCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://RupeeCounter.tscn" type="PackedScene" id=4]
+
+[node name="GUI" type="MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 936.0
+margin_bottom = 73.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 916.0
+margin_bottom = 97.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="Bars" type="VBoxContainer" parent="HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 684.0
+margin_bottom = 97.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="LifeBar" parent="HBoxContainer/Bars" index="0" instance=ExtResource( 1 )]
+
+margin_right = 684.0
+
+[node name="EnergyBar" parent="HBoxContainer/Bars" index="1" instance=ExtResource( 2 )]
+
+margin_left = 20.0
+margin_top = 57.0
+margin_right = 703.0
+margin_bottom = 97.0
+
+[node name="Counters" type="HBoxContainer" parent="HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 688.0
+margin_right = 908.0
+margin_bottom = 97.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 2
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="BombCounter" parent="HBoxContainer/Counters" index="0" instance=ExtResource( 3 )]
+
+margin_left = 54.0
+margin_top = 15.0
+margin_right = 162.0
+margin_bottom = 55.0
+size_flags_vertical = 4
+
+[node name="RupeeCounter" parent="HBoxContainer/Counters" index="1" instance=ExtResource( 4 )]
+
+margin_left = 166.0
+margin_top = 15.0
+margin_right = 274.0
+margin_bottom = 55.0
+size_flags_vertical = 4
+
+
