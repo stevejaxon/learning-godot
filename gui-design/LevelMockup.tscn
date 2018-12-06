@@ -19,9 +19,9 @@ texture = ExtResource( 1 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -458.0
-margin_top = 0.0
 margin_right = 458.0
 margin_bottom = 97.0
+mouse_default_cursor_shape = 0
 
 [node name="Characters" type="Node2D" parent="." index="2"]
 
