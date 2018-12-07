@@ -6,6 +6,7 @@ var state = IDLE
 export var strength = 6
 
 onready var target = $"../Player"
+onready var gameWon = false
 
 
 func _on_Timer_timeout():
@@ -25,8 +26,10 @@ func damage_target(target, damage):
 
 
 func _on_AnimationPlayer_animation_finished( name ):
-	if name == "attack":
+	if name == "attack":		
 		state = IDLE
+		if gameWon == true:
+			$AnimationPlayer.play("victory")
 	if name == "anticipate":
 		$AnimationPlayer.play("attack")
 		damage_target(target, strength)
@@ -34,3 +37,4 @@ func _on_AnimationPlayer_animation_finished( name ):
 
 func _on_Player_died():
 	target = null
+	gameWon = true

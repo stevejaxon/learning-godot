@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/chararacters/shadow.png" type="Texture" id=2]
@@ -59,12 +59,43 @@ tracks/0/keys = {
 "values": [ Vector2( 384, 511 ) ]
 }
 
-[node name="Enemy" type="Node2D"]
+[sub_resource type="Animation" id=4]
 
-position = Vector2( 1024, 511 )
+resource_name = "victory"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 511 ), Vector2( 1024, 411 ), Vector2( 1024, 511 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shadow:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 100 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Enemy" type="Node2D" index="0"]
+
+position = Vector2( 1024, 497.356 )
 scale = Vector2( 1.0625, 1.25 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 strength = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
@@ -77,6 +108,7 @@ playback_speed = 1.0
 anims/anticipate = SubResource( 1 )
 anims/attack = SubResource( 2 )
 anims/setup = SubResource( 3 )
+anims/victory = SubResource( 4 )
 blend_times = [  ]
 _sections_unfolded = [ "Pause", "Playback Options", "playback" ]
 
@@ -91,6 +123,8 @@ autostart = true
 
 position = Vector2( -1, 10.4 )
 texture = ExtResource( 2 )
+offset = Vector2( 0, 13.6443 )
+_sections_unfolded = [ "Offset" ]
 
 [node name="PinkRectangle" type="Sprite" parent="." index="3"]
 
