@@ -34,6 +34,6 @@ autostart = false
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
 
-[connection signal="animation_finished" from="ProjectileExplosion" to="." method="_on_ProjectileExplosion_animation_finished"]
+[connection signal="explosion_animation_completed" from="ProjectileExplosion" to="." method="_on_ProjectileExplosion_animation_finished"]
 
 

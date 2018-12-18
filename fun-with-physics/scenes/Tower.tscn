@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/Tower.gd" type="Script" id=1]
 
-[node name="Tower" type="Node2D" index="0"]
+[node name="Tower" type="Node2D"]
 
 script = ExtResource( 1 )
 Projectile = null
@@ -16,6 +16,14 @@ damage = null
 
 [node name="Muzzel" type="Position2D" parent="Turret" index="0"]
 
+_sections_unfolded = [ "Transform" ]
+
+[node name="Flash" type="Sprite" parent="Turret" index="1"]
+
+modulate = Color( 1, 1, 1, 0 )
+region_enabled = true
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
 [node name="WeaponTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
@@ -23,7 +31,16 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="Range" type="Area2D" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+blend_times = [  ]
+
+[node name="Range" type="Area2D" parent="." index="4"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

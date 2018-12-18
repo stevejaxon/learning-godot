@@ -15,12 +15,20 @@ func _ready():
 	circle.radius = weapon_range
 	$Range/CollisionShape2D.shape = circle
 	
+func _process(delta):
+	control(delta)
+	
 func shoot():
 	if can_shoot:
 		can_shoot = false
 		$WeaponTimer.start()
 		var direction = Vector2(1,0).rotated($Turret.global_rotation)
-		emit_signal('shoot', Projectile, $Turret/Muzzell.global_position, dir, damage)
+		emit_signal('shoot', Projectile, $Turret/Muzzel.global_position, direction, damage)
 		
 func _on_WeaponTimer_timeout():
 	can_shoot = true # weapon cooldown timer has finished
+
+func control(delta):
+	$Turret.look_at(get_global_mouse_position())
+	if Input.is_action_just_pressed("ui_accept"):
+		shoot()

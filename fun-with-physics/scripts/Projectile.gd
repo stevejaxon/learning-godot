@@ -6,11 +6,13 @@ export (float) var lifetime
 
 var velocity = Vector2()
 
-func start(_position, _direction):
+func start(_position, _direction, _damage):
 	position = _position
 	rotation = _direction.angle()
+	damage = _damage
 	$Lifetime.wait_time = lifetime
 	velocity = _direction * speed
+	$Lifetime.start()
 	
 func _process(delta):
 	position += velocity * delta
@@ -20,7 +22,7 @@ func expolode():
 	velocity = Vector2() # The projectile is no longer moving
 	$Sprite.hide()
 	$ProjectileExplosion.show()
-	$ProjectileExplosion.play("explode")
+	$ProjectileExplosion/AnimationPlayer.play("explode")
 
 func _on_Projectile_body_entered(body):
 	expolode()
@@ -28,6 +30,8 @@ func _on_Projectile_body_entered(body):
 		body.take_damage(damage)
 
 func _on_Lifetime_timeout():
+	$Lifetime.stop()
+	$Lifetime.queue_free()
 	expolode()
 
 # Only indicate that the scene is ready to be garbage collected after the animation has finished playing
