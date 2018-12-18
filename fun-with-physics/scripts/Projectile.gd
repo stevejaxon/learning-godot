@@ -17,7 +17,10 @@ func _process(delta):
 	
 
 func expolode():
-	queue_free()
+	velocity = Vector2() # The projectile is no longer moving
+	$Sprite.hide()
+	$ProjectileExplosion.show()
+	$ProjectileExplosion.play("explode")
 
 func _on_Projectile_body_entered(body):
 	expolode()
@@ -26,3 +29,7 @@ func _on_Projectile_body_entered(body):
 
 func _on_Lifetime_timeout():
 	expolode()
+
+# Only indicate that the scene is ready to be garbage collected after the animation has finished playing
+func _on_ProjectileExplosion_animation_finished():
+	queue_free()
