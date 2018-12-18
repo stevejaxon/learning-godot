@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Tower.gd" type="Script" id=1]
+
+[node name="Tower" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+Projectile = null
+weapon_cooldown = null
+weapon_range = null
+damage = null
+
+[node name="Body" type="Sprite" parent="." index="0"]
+
+[node name="Turret" type="Sprite" parent="." index="1"]
+
+[node name="Muzzel" type="Position2D" parent="Turret" index="0"]
+
+[node name="WeaponTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Range" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 15
+collision_mask = 15
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" index="0"]
+
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[connection signal="timeout" from="WeaponTimer" to="." method="_on_WeaponTimer_timeout"]
+
+
