@@ -10,9 +10,9 @@ extents = Vector2( 2.97197, 2.08363 )
 
 [node name="Projectile" index="0" instance=ExtResource( 1 )]
 
-speed = 200
+speed = 350
 damage = 10
-lifetime = 1.0
+lifetime = 2.0
 
 [node name="Sprite" parent="." index="0"]
 

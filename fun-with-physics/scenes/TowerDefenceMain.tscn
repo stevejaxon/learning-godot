@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/CannonTower.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/CannonBullet.tscn" type="PackedScene" id=4]
 
-[node name="TowerDefenceMain" type="Node2D"]
+[node name="TowerDefenceMain" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -35,7 +35,7 @@ _sections_unfolded = [ "Cell" ]
 position = Vector2( 193.173, 122.434 )
 Projectile = ExtResource( 4 )
 weapon_cooldown = 0.5
-weapon_range = 300.0
+weapon_range = 500.0
 damage = 10
 
 [connection signal="shoot" from="Tower" to="." method="_on_Tower_shoot"]

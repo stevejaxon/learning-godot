@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Tower.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/CannonTower.gd" type="Script" id=2]
+[ext_resource path="res://scripts/CannonTower.gd" type="Script" id=2]
 [ext_resource path="res://assets/towers/tower01_pixart_128.png" type="Texture" id=3]
 [ext_resource path="res://assets/Weapons/Medium/Cannon/turret_01_mk1.png" type="Texture" id=4]
 [ext_resource path="res://assets/Weapons/Small/Cannon/turret_01_explosion.png" type="Texture" id=5]
+
 
 [node name="Tower" instance=ExtResource( 1 )]
 
@@ -22,7 +23,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Muzzel" parent="Turret" index="0"]
 
-position = Vector2( 0, -35 )
+position = Vector2( 35, 0 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Flash" parent="Turret" index="1"]
