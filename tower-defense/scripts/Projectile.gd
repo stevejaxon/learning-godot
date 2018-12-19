@@ -17,7 +17,9 @@ func start(_position, _direction, _damage):
 func _process(delta):
 	position += velocity * delta
 	
-
+func get_projectile_speed():
+	return speed
+	
 func expolode():
 	velocity = Vector2() # The projectile is no longer moving
 	$Sprite.hide()

@@ -12,6 +12,7 @@ export (Vector2) var spawnPosition
 export (Vector2) var destination
 
 var health
+var velocity
 
 func _ready():
 	health = max_health
@@ -26,17 +27,13 @@ func _navigate():
 	pass
 	
 func take_damage(amount):
-	print(amount)
-	print(health)
-	print(armor)
-	print(amount - armor)
 	health = health - (amount - armor)
 	if health <= 0:
 		_die()
 		
-# A simple solution to save towers having to calculate the movement speed
-func get_movement_speed():
-	return movement_speed
+# A simple solution to save towers having to calculate the velocity of the Creep
+func get_velocity():
+	return velocity
 	
 func _notify_ui_of_health_change(health):	
 	emit_signal("health_changed", health * 100/max_health) # Show the health as a percentage
