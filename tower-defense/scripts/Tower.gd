@@ -39,13 +39,8 @@ func control(delta):
 		aim(delta)
 		shoot()
 	
-func _on_Range_area_shape_exited(area_id, area, area_shape, self_shape):
-	
-	pass # replace with function body
-
 func _on_Range_body_entered(body):
 	target = body
 
 func _on_Range_body_exited(body):
-	print("target lost")
 	target = null
