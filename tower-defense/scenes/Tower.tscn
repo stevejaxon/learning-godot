@@ -59,4 +59,8 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 [connection signal="timeout" from="WeaponTimer" to="." method="_on_WeaponTimer_timeout"]
 
+[connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
+
+[connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
+
 
