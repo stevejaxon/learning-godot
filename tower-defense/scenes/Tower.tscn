@@ -2,12 +2,12 @@
 
 [ext_resource path="res://scripts/Tower.gd" type="Script" id=1]
 
-[node name="Tower" type="Node2D" index="0"]
+[node name="Tower" type="Node2D"]
 
 script = ExtResource( 1 )
 Projectile = null
 weapon_cooldown = null
-weapon_range = null
+vision = null
 damage = null
 
 [node name="Body" type="Sprite" parent="." index="0"]

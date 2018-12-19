@@ -4,7 +4,7 @@ signal shoot
 
 export (PackedScene) var Projectile
 export (float) var weapon_cooldown
-export (float) var weapon_range
+export (float) var vision
 export (int) var damage
 
 var can_shoot = true # tracks whether the weapon cooldown has finished or not
@@ -12,7 +12,7 @@ var can_shoot = true # tracks whether the weapon cooldown has finished or not
 func _ready():
 	$WeaponTimer.wait_time = weapon_cooldown
 	var circle = CircleShape2D.new()
-	circle.radius = weapon_range
+	circle.radius = vision
 	$Range/CollisionShape2D.shape = circle
 	
 func _process(delta):

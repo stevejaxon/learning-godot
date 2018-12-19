@@ -35,7 +35,7 @@ _sections_unfolded = [ "Cell" ]
 position = Vector2( 193.173, 122.434 )
 Projectile = ExtResource( 4 )
 weapon_cooldown = 0.5
-weapon_range = 500.0
+vision = 600.0
 damage = 10
 
 [connection signal="shoot" from="Tower" to="." method="_on_Tower_shoot"]
