@@ -7,7 +7,7 @@ export (float) var weapon_cooldown
 export (float) var vision
 export (int) var damage
 
-var target
+var targets = []
 var can_shoot = true # tracks whether the weapon cooldown has finished or not
 var projectile_speed
 
@@ -27,7 +27,7 @@ func _process(delta):
 	control(delta)
 	
 func aim(delta):
-	var target_dir = _calculate_where_to_aim_for_shot_to_hit(target)
+	var target_dir = _calculate_where_to_aim_for_shot_to_hit(targets[0])
 	var current_dir = Vector2(1, 0).rotated($Turret.global_rotation)
 	$Turret.global_rotation = current_dir.linear_interpolate(target_dir, delta).angle()
 
@@ -74,12 +74,12 @@ func _on_WeaponTimer_timeout():
 	can_shoot = true # weapon cooldown timer has finished
 
 func control(delta):
-	if target != null:
+	if targets.size() > 0:
 		aim(delta)
 		shoot()
 	
 func _on_Range_body_entered(body):
-	target = body
+	targets.push_back(body)
 
 func _on_Range_body_exited(body):
-	target = null
+	targets.pop_front()
