@@ -30,16 +30,13 @@ func _process(delta):
 	
 func aim(delta):
 	var target_dir = _calculate_where_to_aim_for_shot_to_hit(targets[0])
-	var current_dir = Vector2(1, 0).rotated($Turret.global_rotation)
-	$Turret.global_rotation = current_dir.linear_interpolate(target_dir, delta).angle()
+	$Turret.look_at(target_dir)
 
 # Based on the solution found on StackOverflow: https://stackoverflow.com/a/2249237/8615465
 func _calculate_where_to_aim_for_shot_to_hit(target):
 	var target_velocity = target.get_velocity()
 	var targets_current_position = target.get_global_position()
-	print(targets_current_position)
 	var muzzels_current_position = $Turret/Muzzel.global_position
-	print(muzzels_current_position)
 	var a = _square(target_velocity.x) + _square(target_velocity.y) - _square(projectile_speed)
 	var b = 2 * (target_velocity.x * (targets_current_position.x - muzzels_current_position.x) 
 				+ target_velocity.y * (targets_current_position.y - muzzels_current_position.y))
@@ -51,9 +48,7 @@ func _calculate_where_to_aim_for_shot_to_hit(target):
 		return muzzels_current_position
 	else:
 		var t1 = (-b + sqrt(discriminant)) / (2*a)
-		print(t1)
 		var t2 = (-b - sqrt(discriminant)) / (2*a)
-		print(t2)
 		if t1 < 0 && t2 < 0:
 			# Negative values mean it's not possible to hit the target - don't aim this time
 			return muzzels_current_position
@@ -63,7 +58,6 @@ func _calculate_where_to_aim_for_shot_to_hit(target):
 		else:
 			# one is negative, so pick the positive value for t
 			t = max(t1, t2)
-	print(t)
 	return t * target_velocity + targets_current_position
 
 func _square(value):
@@ -91,8 +85,6 @@ func _reset_turret_position(delta):
 	
 func _on_Range_body_entered(body):
 	targets.push_back(body)
-	print(targets)
 
 func _on_Range_body_exited(body):
 	targets.pop_front()
-	print(targets)
