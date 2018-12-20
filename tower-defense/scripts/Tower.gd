@@ -10,12 +10,14 @@ export (int) var damage
 var targets = []
 var can_shoot = true # tracks whether the weapon cooldown has finished or not
 var projectile_speed
+var muzzel_start_position
 
 func _ready():
 	$WeaponTimer.wait_time = weapon_cooldown
 	var circle = CircleShape2D.new()
 	circle.radius = vision
 	$Range/CollisionShape2D.shape = circle
+	muzzel_start_position = $Turret/Muzzel.global_position
 	# Since the Tower doesn't actually fire the projectile (it leaves it up to the main scene to do that) we need
 	# to get an instance of the projectile to find out how fast it travels for later aiming calculations
 	# The projectile_speed variable needs to be updated if the underlying projectile is modified mid-scene (e.g. upgraded)
@@ -35,7 +37,9 @@ func aim(delta):
 func _calculate_where_to_aim_for_shot_to_hit(target):
 	var target_velocity = target.get_velocity()
 	var targets_current_position = target.get_global_position()
+	print(targets_current_position)
 	var muzzels_current_position = $Turret/Muzzel.global_position
+	print(muzzels_current_position)
 	var a = _square(target_velocity.x) + _square(target_velocity.y) - _square(projectile_speed)
 	var b = 2 * (target_velocity.x * (targets_current_position.x - muzzels_current_position.x) 
 				+ target_velocity.y * (targets_current_position.y - muzzels_current_position.y))
@@ -47,7 +51,9 @@ func _calculate_where_to_aim_for_shot_to_hit(target):
 		return muzzels_current_position
 	else:
 		var t1 = (-b + sqrt(discriminant)) / (2*a)
+		print(t1)
 		var t2 = (-b - sqrt(discriminant)) / (2*a)
+		print(t2)
 		if t1 < 0 && t2 < 0:
 			# Negative values mean it's not possible to hit the target - don't aim this time
 			return muzzels_current_position
@@ -57,7 +63,7 @@ func _calculate_where_to_aim_for_shot_to_hit(target):
 		else:
 			# one is negative, so pick the positive value for t
 			t = max(t1, t2)
-		
+	print(t)
 	return t * target_velocity + targets_current_position
 
 func _square(value):
@@ -77,9 +83,16 @@ func control(delta):
 	if targets.size() > 0:
 		aim(delta)
 		shoot()
+	elif $Turret/Muzzel.global_position.x != muzzel_start_position.x:
+		_reset_turret_position(delta)
+
+func _reset_turret_position(delta):
+	$Turret.global_rotation = 0
 	
 func _on_Range_body_entered(body):
 	targets.push_back(body)
+	print(targets)
 
 func _on_Range_body_exited(body):
 	targets.pop_front()
+	print(targets)

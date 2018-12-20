@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/Weapons/Medium/Cannon/turret_01_mk1.png" type="Texture" id=4]
 [ext_resource path="res://assets/Weapons/Small/Cannon/turret_01_explosion.png" type="Texture" id=5]
 
-
 [node name="Tower" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
