@@ -24,6 +24,7 @@ func _ready():
 	var temp_projectile = Projectile.instance()
 	projectile_speed = temp_projectile.get_projectile_speed()
 	temp_projectile.queue_free()
+	$AnimationPlayer.play("init")
 	
 func _process(delta):
 	control(delta)
@@ -69,6 +70,7 @@ func shoot():
 		$WeaponTimer.start()
 		var direction = Vector2(1,0).rotated($Turret.global_rotation)
 		emit_signal('shoot', Projectile, $Turret/Muzzel.global_position, direction, damage)
+		$AnimationPlayer.play("muzzle_flash")
 		
 func _on_WeaponTimer_timeout():
 	can_shoot = true # weapon cooldown timer has finished
