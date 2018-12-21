@@ -1,8 +1,8 @@
 extends Node2D
 
-var bar_low_health = preload("res://assets/ui/barHorizontal_green_mid 200.png")
-var bar_full_health = preload("res://assets/ui/barHorizontal_red_mid 200.png")
+var bar_full_health = preload("res://assets/ui/barHorizontal_green_mid 200.png")
 var bar_taken_damage = preload("res://assets/ui/barHorizontal_yellow_mid 200.png")
+var bar_low_health = preload("res://assets/ui/barHorizontal_red_mid 200.png")
 
 func _process(delta):
 	global_rotation = 0 # prevent the health bar rotating with any attached units
