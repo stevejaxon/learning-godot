@@ -1,33 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scripts/BasicCreep.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Creep.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/BasicCreep.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 31.443, 32.1887 )
+extents = Vector2( 31.8094, 31.8511 )
 
-[node name="Creep" type="KinematicBody2D"]
+[node name="Creep" index="0" instance=ExtResource( 1 )]
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 1 )
-movement_speed = null
-max_health = null
-armor = 0
-agility = 0
-luck = 0
-spawnPosition = null
-destination = null
+script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 
 shape = SubResource( 1 )
 

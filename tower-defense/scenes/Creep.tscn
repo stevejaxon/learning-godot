@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/Creep.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/HealthDisplay.tscn" type="PackedScene" id=2]
 
-[node name="Creep" type="Node2D"]
+[node name="Creep" type="KinematicBody2D"]
 
+input_pickable = false
+collision_layer = 15
+collision_mask = 15
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 movement_speed = null
 max_health = null
 armor = 0
@@ -13,30 +19,12 @@ luck = 0
 spawnPosition = null
 destination = null
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="HealthDisplay" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="Area2D" type="RigidBody2D" parent="." index="1"]
+[node name="Sprite" type="Sprite" parent="." index="1"]
 
-input_pickable = false
-collision_layer = 15
-collision_mask = 15
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-_sections_unfolded = [ "Collision" ]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[connection signal="health_changed" from="." to="HealthDisplay" method="update_health_bar"]
 
 

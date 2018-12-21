@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/CannonBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/BasicCreep.tscn" type="PackedScene" id=5]
 
-[node name="TowerDefenceMain" type="Node2D" index="0"]
+[node name="TowerDefenceMain" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -33,7 +33,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="Tower" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 866.754, 515.37 )
+position = Vector2( 432.034, 309.45 )
 Projectile = ExtResource( 4 )
 weapon_cooldown = 0.75
 vision = 600.0
@@ -41,23 +41,8 @@ damage = 10
 
 [node name="Creep" parent="." index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 964.126, -125.366 )
-_sections_unfolded = [ "Transform" ]
-movement_speed = 100
-max_health = 30
-
-[node name="Creep2" parent="." index="3" instance=ExtResource( 5 )]
-
-position = Vector2( 263.726, 919.262 )
-_sections_unfolded = [ "Transform" ]
-movement_speed = -60
-max_health = 50
-
-[node name="Creep3" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( -56.8844, 704.58 )
-_sections_unfolded = [ "Transform" ]
-movement_speed = -40
+position = Vector2( 1034.13, -15.4559 )
+movement_speed = 70
 max_health = 50
 
 [connection signal="shoot" from="Tower" to="." method="_on_Tower_shoot"]

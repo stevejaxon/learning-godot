@@ -28,6 +28,7 @@ func _navigate():
 	
 func take_damage(amount):
 	health = health - (amount - armor)
+	_notify_ui_of_health_change(health)
 	if health <= 0:
 		_die()
 		
