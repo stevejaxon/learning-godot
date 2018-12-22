@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/towers/tower01_pixart_128.png" type="Texture" id=3]
 [ext_resource path="res://assets/Weapons/Medium/Cannon/turret_01_mk1.png" type="Texture" id=4]
 
-[node name="Tower" index="0" instance=ExtResource( 1 )]
+[node name="Tower" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
@@ -23,5 +23,9 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 35, 0 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Range" parent="." index="4"]
+
+collision_layer = 14
 
 
