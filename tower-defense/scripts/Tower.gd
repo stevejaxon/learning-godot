@@ -35,9 +35,15 @@ func aim(delta):
 
 # Based on the solution found on StackOverflow: https://stackoverflow.com/a/2249237/8615465
 func _calculate_where_to_aim_for_shot_to_hit(target):
-	var target_velocity = target.get_velocity()
-	var targets_current_position = target.get_global_position()
 	var muzzels_current_position = $Turret/Muzzel.global_position
+	if ! target.get_ref():
+		# target has recently been freed (killed and garbage collected), skip shooting this frame
+		return muzzels_current_position
+	else:
+		prints(target, self)
+		target = target.get_ref()
+	var target_velocity = target.get_velocity()
+	var targets_current_position = target.get_global_position()	
 	var a = _square(target_velocity.x) + _square(target_velocity.y) - _square(projectile_speed)
 	var b = 2 * (target_velocity.x * (targets_current_position.x - muzzels_current_position.x) 
 				+ target_velocity.y * (targets_current_position.y - muzzels_current_position.y))
@@ -86,7 +92,7 @@ func _reset_turret_position(delta):
 	$Turret.global_rotation = 0
 	
 func _on_Range_body_entered(body):
-	targets.push_back(body)
+	targets.push_back(weakref(body))
 
 func _on_Range_body_exited(body):
 	targets.pop_front()
