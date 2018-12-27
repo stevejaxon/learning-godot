@@ -1,0 +1,312 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/ui/trees-and-bushes.png" type="Texture" id=1]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( -16, -16, 16, -16, 16, 16, -16, 16 ) ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 12.0
+height = 6.0
+
+[node name="Node2D" type="Node2D" index="0"]
+
+[node name="Path" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 190, 110, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Path" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Path2" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 53, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 118, 110, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Path2" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Path3" type="Sprite" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 16, 53 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 45, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Path3" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Path4" type="Sprite" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 53, 53 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 176, 71, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Path4" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Path5" type="Sprite" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 53, 90 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 159, 11, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Path5" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Path6" type="Sprite" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 16, 90 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 132, 47, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Path6" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Path7" type="Sprite" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 16, 128 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 59, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Path7" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Path8" type="Sprite" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 53, 128 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 13, 49, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Path8" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Path9" type="Sprite" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( 53, 128 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 13, 49, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Path9" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="Plant" type="Sprite" parent="." index="9"]
+
+position = Vector2( 53, 165 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 223, 49, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Plant2" type="Sprite" parent="." index="10"]
+
+position = Vector2( 16, 165 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 254, 49, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Plant3" type="Sprite" parent="." index="11"]
+
+position = Vector2( 16, 204 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 227, 83, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Tree" type="Sprite" parent="." index="12"]
+
+editor/display_folded = true
+position = Vector2( 16, 243 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 0, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Tree" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree/Area2D" index="0"]
+
+position = Vector2( 1, 0 )
+shape = SubResource( 2 )
+
+[node name="Tree2" type="Sprite" parent="." index="13"]
+
+editor/display_folded = true
+position = Vector2( 53, 243 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 223, 10, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Tree2" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree2/Area2D" index="0"]
+
+position = Vector2( 1, 0 )
+shape = SubResource( 2 )
+
+[node name="Tree3" type="Sprite" parent="." index="14"]
+
+editor/display_folded = true
+position = Vector2( 16, 281 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 240, 125, 32, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Tree3" index="0"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree3/Area2D" index="0"]
+
+position = Vector2( 1, 0 )
+shape = SubResource( 2 )
+
+[node name="Grass" type="Sprite" parent="." index="15"]
+
+position = Vector2( 16, 320 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 121, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Grass2" type="Sprite" parent="." index="16"]
+
+position = Vector2( 54, 320 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 88, 1, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Grass3" type="Sprite" parent="." index="17"]
+
+position = Vector2( 92, 320 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 73, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Grass4" type="Sprite" parent="." index="18"]
+
+position = Vector2( 129, 320 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 88, 128, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+
