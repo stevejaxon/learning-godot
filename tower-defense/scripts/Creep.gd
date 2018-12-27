@@ -1,19 +1,30 @@
-extends Node2D
+extends KinematicBody2D
 
 signal health_changed
 signal dead
 
 export (int) var movement_speed
 export (int) var max_health
-export (int) var armor = 0
-export (int) var agility = 0
-export (int) var luck = 0
-export (Vector2) var spawnPosition
+export (int) var armor
+export (int) var agility
+export (int) var luck
 export (Vector2) var destination
 
+var nav
 var health
 var velocity
+var path = []
 
+func _init(_nav, _spawnPosition, _destination, _movement_speed = 100, _max_health=100, _armor=0, _agility=0, _luck=0):
+	nav = _nav
+	position = _spawnPosition
+	destination = _destination
+	movement_speed = _movement_speed
+	max_health = _max_health
+	armor = _armor
+	agility = _agility
+	luck = _luck
+	
 func _ready():
 	health = max_health
 	_notify_ui_of_health_change(health)

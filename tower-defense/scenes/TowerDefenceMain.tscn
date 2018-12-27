@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/CannonBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/BasicCreep.tscn" type="PackedScene" id=5]
 
-[node name="TowerDefenceMain" type="Node2D" index="0"]
+[node name="TowerDefenceMain" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -92,60 +92,90 @@ damage = 10
 position = Vector2( 1044.15, -28.8174 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [node name="Creep2" parent="Creeps" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 1292.27, -338.449 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [node name="Creep3" parent="Creeps" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 1165.13, -369.207 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [node name="Creep4" parent="Creeps" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 1283.21, -461.594 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [node name="Creep5" parent="Creeps" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 978.535, -203.113 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [node name="Creep6" parent="Creeps" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 1066.71, -285.135 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [node name="Creep7" parent="Creeps" index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 937.524, -106.738 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [node name="Creep8" parent="Creeps" index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 1191.79, -262.579 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [node name="Creep9" parent="Creeps" index="8" instance=ExtResource( 5 )]
 
 position = Vector2( 1128.22, -192.861 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [node name="Creep10" parent="Creeps" index="9" instance=ExtResource( 5 )]
 
 position = Vector2( 1076.96, -106.738 )
 movement_speed = 70
 max_health = 50
+armor = null
+agility = null
+luck = null
 
 [connection signal="shoot" from="Towers/Tower" to="." method="_on_Tower_shoot"]
 
