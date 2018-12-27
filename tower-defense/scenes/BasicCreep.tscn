@@ -11,15 +11,24 @@ extents = Vector2( 31.8094, 31.8511 )
 
 [node name="Creep" instance=ExtResource( 1 )]
 
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Collision", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+
+[node name="HealthDisplay" parent="." index="0"]
+
+position = Vector2( 0, -10 )
+scale = Vector2( 0.35, 0.35 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sprite" parent="." index="1"]
 
 texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset" ]
 
 [node name="CollisionShape2D" parent="." index="2"]
 
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 

@@ -15,7 +15,7 @@ var health
 var velocity
 var path = []
 
-func _init(_nav, _spawnPosition, _destination, _movement_speed = 100, _max_health=100, _armor=0, _agility=0, _luck=0):
+func init(_nav, _spawnPosition, _destination, _movement_speed = 100, _max_health=100, _armor=0, _agility=0, _luck=0):
 	nav = _nav
 	position = _spawnPosition
 	destination = _destination

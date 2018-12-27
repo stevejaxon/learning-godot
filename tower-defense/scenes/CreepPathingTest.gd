@@ -4,11 +4,13 @@ onready var start_pos = $StartPosition.position
 onready var end_pos = $EndPosition.position
 onready var nav = $Navigation2D
 
-var Creep = preload("res://scripts/BasicCreep.gd")
+#var Creep = preload("res://scripts/BasicCreep.gd")
+export (PackedScene) var Creep;
 
 func _ready():
 	_spawn_creep()
 	
 func _spawn_creep():
-	var c = Creep.new(nav, start_pos, end_pos)
+	var c = Creep.instance()
+	c.init(nav, start_pos, end_pos)
 	add_child(c)
