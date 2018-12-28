@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/CreepEmitter.gd" type="Script" id=1]
+[ext_resource path="res://scenes/BasicCreep.tscn" type="PackedScene" id=2]
+
+[node name="CreepEmitter" type="Node2D"]
+
+script = ExtResource( 1 )
+total_number_of_enemies = 1
+spawn_interval = 0.5
+Creep = ExtResource( 2 )
+
+[node name="EmitterInterval" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="EmitterInterval" to="." method="_on_EmitterInterval_timeout"]
+
+
