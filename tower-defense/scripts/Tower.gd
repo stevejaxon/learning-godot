@@ -40,7 +40,6 @@ func _calculate_where_to_aim_for_shot_to_hit(target):
 		# target has recently been freed (killed and garbage collected), skip shooting this frame
 		return muzzels_current_position
 	else:
-		prints(target, self)
 		target = target.get_ref()
 	var target_velocity = target.get_velocity()
 	var targets_current_position = target.get_global_position()	
@@ -92,7 +91,9 @@ func _reset_turret_position(delta):
 	$Turret.global_rotation = 0
 	
 func _on_Range_body_entered(body):
+	print("target aquired")
 	targets.push_back(weakref(body))
 
 func _on_Range_body_exited(body):
+	print("target lost")
 	targets.pop_front()
