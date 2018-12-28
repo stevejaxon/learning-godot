@@ -38,7 +38,7 @@ _sections_unfolded = [ "Cell" ]
 
 [node name="StartPosition" type="Position2D" parent="." index="1"]
 
-position = Vector2( 16, 0 )
+position = Vector2( 16, -50 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="EndPosition" type="Position2D" parent="." index="2"]
