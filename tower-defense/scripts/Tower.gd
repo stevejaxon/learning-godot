@@ -91,9 +91,7 @@ func _reset_turret_position(delta):
 	$Turret.global_rotation = 0
 	
 func _on_Range_body_entered(body):
-	print("target aquired")
 	targets.push_back(weakref(body))
 
 func _on_Range_body_exited(body):
-	print("target lost")
 	targets.pop_front()
