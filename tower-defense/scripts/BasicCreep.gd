@@ -7,15 +7,26 @@ func _ready():
 	path.remove(0)
 	
 func _navigate(delta):
+	prints("delta", delta)
+	prints("position", position)
 	if path.size() > 1:
 		var d = position.distance_to(path[0])
 		if d < 1:
 			# The Creep has moved to close to the current path node, so switch to moving towards the next one 
 			path.remove(0)
-		else:
-			var moveScalar = position.linear_interpolate(path[0], (movement_speed * delta) / d)
-			position = moveScalar
-			velocity = moveScalar - position
+		else:			
+			#var moveScalar = position.linear_interpolate(path[0], (movement_speed * delta) / d)
+			#prints("velocity?", position - moveScalar)
+			#prints("move", moveScalar)
+			#position = moveScalar
+			#velocity = position - moveScalar
+			#prints("velocity??", velocity)
+			var before = position
+			prints("position before", position)
+			velocity = move_and_slide(Vector2(0, 50))
+			prints("position after", position)
+			prints("diff", position - before)
+			print(velocity)
 
 func _update_path():
 	path = nav.get_simple_path(position, destination, false)
