@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/obstacles/Barrel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/obstacles/Crate.tscn" type="PackedScene" id=5]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -21,9 +21,21 @@ _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 [node name="Barrel" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 39.8588, 48.104 )
+input_pickable = false
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
 [node name="Crate" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 139.967, 208.002 )
+input_pickable = false
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
 
