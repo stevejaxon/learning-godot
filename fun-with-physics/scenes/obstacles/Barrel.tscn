@@ -1,34 +1,44 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/obstacles/DestructableObstacle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/wood.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 37.5
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 37.5
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 37.5
+height = 20.0
 
 [node name="Barrel" instance=ExtResource( 1 )]
+
+_sections_unfolded = [ "Collision", "Material", "Z Index" ]
 
 [node name="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sprite" parent="." index="1"]
 
-position = Vector2( 0.206791, 0.254735 )
-scale = Vector2( 0.865264, 0.91557 )
+position = Vector2( 0.60199, -0.420965 )
+scale = Vector2( 4.64605, 5.44658 )
 texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 80, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 

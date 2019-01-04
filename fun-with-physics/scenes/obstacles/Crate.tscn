@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/obstacles/DestructableObstacle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/wood.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,18 +22,24 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" parent="." index="1"]
 
-position = Vector2( 0.546059, 0.427325 )
-scale = Vector2( 1.16776, 1.17787 )
+position = Vector2( 0.218546, 0.218483 )
+scale = Vector2( 2.35476, 2.3495 )
 texture = ExtResource( 2 )
-
-[node name="Area2D" parent="." index="2"]
-
-collision_mask = 2
+region_enabled = true
+region_rect = Rect2( 80, 160, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 
+position = Vector2( 0.35849, 0.323536 )
 shape = SubResource( 2 )
 
+[node name="AnimationPlayer" parent="." index="3"]
+
+_sections_unfolded = [ "Playback Options" ]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 
