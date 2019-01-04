@@ -15,9 +15,6 @@ extents = Vector2( 37.5, 37.5 )
 
 [node name="Crate" instance=ExtResource( 1 )]
 
-collision_layer = 2
-_sections_unfolded = [ "Collision" ]
-
 [node name="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
@@ -31,9 +28,7 @@ texture = ExtResource( 2 )
 
 [node name="Area2D" parent="." index="2"]
 
-collision_layer = 2
 collision_mask = 2
-_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 
