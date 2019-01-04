@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/obstacles/DestructableObstacle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 37.5, 37.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 37.5, 37.5 )
+
+[node name="Crate" instance=ExtResource( 1 )]
+
+collision_layer = 2
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" parent="." index="1"]
+
+position = Vector2( 0.546059, 0.427325 )
+scale = Vector2( 1.16776, 1.17787 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" parent="." index="2"]
+
+collision_layer = 2
+collision_mask = 2
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+
