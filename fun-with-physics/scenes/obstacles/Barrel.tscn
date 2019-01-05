@@ -58,7 +58,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.0541992, 0.289062, 0.134933, 1 ), Color( 0.923386, 0.964844, 0.937637, 1 ), Color( 0.0637207, 0.5625, 0.235176, 1 ), Color( 1, 1, 1, 1 ), Color( 0.0983887, 0.242188, 0.14782, 1 ) ]
 }
 
-[node name="Barrel" instance=ExtResource( 1 )]
+[node name="Barrel" index="0" instance=ExtResource( 1 )]
 
 _sections_unfolded = [ "Collision", "Material", "Transform", "Z Index" ]
 
