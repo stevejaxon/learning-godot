@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/obstacles/IndestructableObstacle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/obstacles/Bumper.gd" type="Script" id=2]
 [ext_resource path="res://assets/star_blue_giant01.png" type="Texture" id=3]
-
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -41,6 +40,37 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.24575, 0.234146, 0.605469, 1 ), Color( 0.1829, 0.173553, 0.472656, 1 ), Color( 0.243137, 0.231373, 0.603922, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+
+resource_name = "depleated"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.784549 ), Color( 1, 1, 1, 0.574588 ), Color( 1, 1, 1, 0.392274 ), Color( 1, 1, 1, 0.22651 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
@@ -50,6 +80,7 @@ radius = 37.5
 
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Visibility" ]
+hits_remaining = -1
 
 [node name="CollisionShape2D" parent="." index="0"]
 
@@ -59,7 +90,7 @@ shape = SubResource( 1 )
 
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 
@@ -69,6 +100,7 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/bump = SubResource( 2 )
+anims/depleated = SubResource( 4 )
 blend_times = [  ]
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
@@ -86,6 +118,8 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
 shape = SubResource( 3 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 

@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 func _on_Area2D_body_entered(body):
+	print("boom")
 	_animate_destroyed()
 
 func _animate_destroyed():

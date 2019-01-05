@@ -8,11 +8,6 @@
 custom_solver_bias = 0.0
 extents = Vector2( 37.5, 37.5 )
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 37.5, 37.5 )
-
 [sub_resource type="Animation" id=3]
 
 resource_name = "destroyed"
@@ -56,7 +51,15 @@ tracks/2/keys = {
 "values": [ 0.0, 45.0, 90.0, 135.0, 180.0, 225.0 ]
 }
 
-[node name="Crate" instance=ExtResource( 1 )]
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 37.5, 37.5 )
+_sections_unfolded = [ "Resource" ]
+
+[node name="Crate" index="0" instance=ExtResource( 1 )]
+
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" parent="." index="0"]
 
@@ -72,16 +75,7 @@ region_enabled = true
 region_rect = Rect2( 80, 160, 32, 32 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="Area2D" parent="." index="2"]
-
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-
-position = Vector2( 0.35849, 0.323536 )
-shape = SubResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -91,8 +85,18 @@ playback_speed = 1.0
 anims/destroyed = SubResource( 3 )
 blend_times = [  ]
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[node name="Area2D" parent="." index="3"]
+
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( 0.35849, 0.323536 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 
