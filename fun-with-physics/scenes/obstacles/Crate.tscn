@@ -54,7 +54,7 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 37.5, 37.5 )
+extents = Vector2( 37.9274, 38.39 )
 _sections_unfolded = [ "Resource" ]
 
 [node name="Crate" index="0" instance=ExtResource( 1 )]
