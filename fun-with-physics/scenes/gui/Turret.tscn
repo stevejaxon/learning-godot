@@ -10,8 +10,6 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( -0.0516281, -0.0593395 )
-scale = Vector2( 0.388373, 0.067855 )
 texture = ExtResource( 2 )
 offset = Vector2( 30, 0 )
 _sections_unfolded = [ "Offset", "Transform" ]
