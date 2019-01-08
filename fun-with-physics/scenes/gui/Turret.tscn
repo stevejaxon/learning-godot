@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/gui/Turret.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
-[node name="Turret" type="Node2D"]
+[node name="Turret" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
