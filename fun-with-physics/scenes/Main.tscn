@@ -5,11 +5,11 @@
 [ext_resource path="res://scenes/gui/Turret.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/PlayableAreaBoundary.tscn" type="PackedScene" id=4]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 ProjectileInstance = ExtResource( 2 )
-ProjectileLaunchVelocity = 300
+ProjectileMaxLaunchVelocity = 800
 
 [node name="Turret" parent="." index="0" instance=ExtResource( 3 )]
 
