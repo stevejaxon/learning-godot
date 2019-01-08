@@ -16,7 +16,7 @@ _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Muzzel" type="Position2D" parent="." index="1"]
 
-position = Vector2( 23.7495, 0 )
+position = Vector2( 61.4588, 0 )
 _sections_unfolded = [ "Transform" ]
 
 
