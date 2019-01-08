@@ -9,7 +9,7 @@
 
 script = ExtResource( 1 )
 ProjectileInstance = ExtResource( 2 )
-ProjectileLaunchVelocity = 10
+ProjectileLaunchVelocity = 300
 
 [node name="Turret" parent="." index="0" instance=ExtResource( 3 )]
 

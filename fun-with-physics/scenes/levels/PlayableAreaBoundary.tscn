@@ -42,7 +42,6 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Bottom" type="StaticBody2D" parent="." index="1"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 4
 collision_mask = 1
