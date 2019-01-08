@@ -1,17 +1,24 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://scripts/gui/Turret.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [node name="Turret" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( 0.184104, 0 )
-scale = Vector2( 0.268299, 1 )
-texture = ExtResource( 1 )
+position = Vector2( -0.0516281, -0.0593395 )
+scale = Vector2( 0.388373, 0.067855 )
+texture = ExtResource( 2 )
+offset = Vector2( 30, 0 )
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Muzzel" type="Position2D" parent="." index="1"]
 
-position = Vector2( 0, -31.552 )
+position = Vector2( 23.7495, 0 )
+_sections_unfolded = [ "Transform" ]
 
 
