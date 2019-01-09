@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/gui/Turret.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/PlayableAreaBoundary.tscn" type="PackedScene" id=4]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 script = ExtResource( 1 )
 ProjectileInstance = ExtResource( 2 )
