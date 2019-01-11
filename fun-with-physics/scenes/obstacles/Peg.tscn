@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="IndestructableObject" index="0" instance=ExtResource( 1 )]
+[node name="Peg" index="0" instance=ExtResource( 1 )]
 
 [node name="CollisionShape2D" parent="." index="0"]
 
