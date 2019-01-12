@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ball.svg-08dbc86fa0161074f631a41f873c08a2.stex"
+path="res://.import/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.png-1f0c869fc3dddb2042437228bf150df1.stex"
 
 [deps]
 
-source_file="res://assets/ball.svg"
-dest_files=[ "res://.import/ball.svg-08dbc86fa0161074f631a41f873c08a2.stex" ]
+source_file="res://assets/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.png"
+dest_files=[ "res://.import/team_1ball.png.f7a4f30e7e4a09bd0ecb3135a3fcfc4f.png-1f0c869fc3dddb2042437228bf150df1.stex" ]
 
 [params]
 
