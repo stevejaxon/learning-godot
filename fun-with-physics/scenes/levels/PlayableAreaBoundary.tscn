@@ -7,12 +7,12 @@
 custom_solver_bias = 0.0
 extents = Vector2( 375, 1 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 375, 3 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 1, 667 )
@@ -37,7 +37,6 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( 375, -1 )
 shape = SubResource( 1 )
-disabled = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Bottom" type="StaticBody2D" parent="." index="1"]
@@ -75,7 +74,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/Area2D" index="0"]
 
 position = Vector2( 375, 1335 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Left" type="StaticBody2D" parent="." index="2"]
@@ -93,7 +92,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left" index="0"]
 
 position = Vector2( -1, 667 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Right" type="StaticBody2D" parent="." index="3"]
@@ -111,7 +110,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" index="0"]
 
 position = Vector2( 751, 667 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="body_entered" from="Bottom/Area2D" to="." method="_on_Area2D_body_entered"]
