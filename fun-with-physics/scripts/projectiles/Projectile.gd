@@ -11,5 +11,4 @@ func _clean_up():
 	queue_free()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	print("spin")
 	$AnimationPlayer.play("Spin")
