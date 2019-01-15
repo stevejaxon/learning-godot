@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/obstacles/IndestructableObstacle.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/peg.png" type="Texture" id=2]
+[ext_resource path="res://assets/peg2.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -16,7 +16,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
 
-scale = Vector2( 0.065, 0.065 )
+scale = Vector2( 0.08, 0.08 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
