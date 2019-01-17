@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const base_impulse = Vector2(250, 250)
+const base_impulse = Vector2(1500, 1500)
 
 func _add_impulse_to_projectile(projectile):
 	var projectiles_velocity = projectile.linear_velocity
