@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/projectiles/Projectile.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/levels/PlayableAreaBoundary.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/obstacles/Peg.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/obstacles/DestructablePeg.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/obstacles/Bumper.tscn" type="PackedScene" id=7]
 
 [node name="Main" type="Node2D"]
 
@@ -20,6 +21,8 @@ position = Vector2( 375, 0 )
 [node name="PlayableAreaBoundary" parent="." index="1" instance=ExtResource( 4 )]
 
 [node name="pegs" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Peg" parent="pegs" index="0" instance=ExtResource( 5 )]
 
@@ -164,6 +167,48 @@ position = Vector2( 625.998, 682.997 )
 [node name="DestructablePeg8" parent="pegs" index="35" instance=ExtResource( 6 )]
 
 position = Vector2( 628.02, 789.685 )
+
+[node name="bumpers" type="Node2D" parent="." index="3"]
+
+[node name="Bumper" parent="bumpers" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 55.7932, 1290.19 )
+hits_remaining = 1
+
+[node name="Bumper2" parent="bumpers" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 147.76, 1290.19 )
+hits_remaining = 1
+
+[node name="Bumper3" parent="bumpers" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 238.619, 1289.09 )
+hits_remaining = 1
+
+[node name="Bumper4" parent="bumpers" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 333.91, 1290.19 )
+hits_remaining = 1
+
+[node name="Bumper5" parent="bumpers" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 425.877, 1291.3 )
+hits_remaining = 1
+
+[node name="Bumper6" parent="bumpers" index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 518.952, 1290.19 )
+hits_remaining = 1
+
+[node name="Bumper7" parent="bumpers" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 608.703, 1290.2 )
+hits_remaining = 1
+
+[node name="Bumper8" parent="bumpers" index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 698.454, 1289.09 )
+hits_remaining = 1
 
 [connection signal="ball_left_playable_area" from="PlayableAreaBoundary" to="." method="_on_PlayableAreaBoundary_ball_left_playable_area"]
 
