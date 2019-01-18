@@ -16,7 +16,7 @@ func _process(delta):
 		_launch_projectile()
 
 func _launch_projectile():
-	var launch_coordinates = $Turret/Muzzel.global_position
+	var launch_coordinates = $Turret/Muzzel.global_position - position
 	var projectile = ProjectileInstance.instance()
 	$PlayableAreaBoundary.connect("ball_left_playable_area", projectile, "_trigger_disintigrate")
 	add_child(projectile)

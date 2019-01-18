@@ -8,21 +8,28 @@
 [ext_resource path="res://scenes/obstacles/DestructablePeg.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/obstacles/Bumper.tscn" type="PackedScene" id=7]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
+position = Vector2( 375, 667 )
 script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Transform", "Z Index" ]
 ProjectileInstance = ExtResource( 2 )
 ProjectileMaxLaunchVelocity = 800
 
 [node name="Turret" parent="." index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 375, 0 )
+position = Vector2( 0, -667 )
 
 [node name="PlayableAreaBoundary" parent="." index="1" instance=ExtResource( 4 )]
+
+position = Vector2( -375, -667 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="pegs" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
+position = Vector2( -375, -667 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Peg" parent="pegs" index="0" instance=ExtResource( 5 )]
 
@@ -169,6 +176,10 @@ position = Vector2( 625.998, 682.997 )
 position = Vector2( 628.02, 789.685 )
 
 [node name="bumpers" type="Node2D" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( -375, -667 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Bumper" parent="bumpers" index="0" instance=ExtResource( 7 )]
 
