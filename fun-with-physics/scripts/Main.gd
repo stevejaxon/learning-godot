@@ -7,6 +7,7 @@ export (int) var ProjectileMaxLaunchVelocity = 800
 # We want facing directly down to be 0 degrees rotation.
 const TURRET_ROTATION_OFFSET = 90
 const MAX_X_IMPULE_PERCENTAGE = 80
+const ROTATION_SPEED = 0.02
 
 var can_fire = true
 
@@ -14,6 +15,13 @@ func _process(delta):
 	if can_fire and Input.is_mouse_button_pressed(1):
 		can_fire = false
 		_launch_projectile()
+	else:
+		if Input.is_action_pressed("rotate_left"):
+			print("left")
+			print(rotation)
+			rotate(ROTATION_SPEED)
+		elif Input.is_action_pressed("rotate_right"):
+			rotate(-ROTATION_SPEED)
 
 func _launch_projectile():
 	var launch_coordinates = $Turret/Muzzel.global_position - position

@@ -27,7 +27,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="pegs" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( -375, -667 )
 _sections_unfolded = [ "Transform" ]
 
@@ -107,77 +106,64 @@ position = Vector2( 320.976, 789.688 )
 
 position = Vector2( 272.684, 628.533 )
 
-[node name="Peg23" parent="pegs" index="19" instance=ExtResource( 5 )]
-
-position = Vector2( 173.691, 735.993 )
-
-[node name="Peg31" parent="pegs" index="20" instance=ExtResource( 5 )]
+[node name="Peg31" parent="pegs" index="19" instance=ExtResource( 5 )]
 
 position = Vector2( 222.704, 789.978 )
 
-[node name="Peg15" parent="pegs" index="21" instance=ExtResource( 5 )]
+[node name="Peg15" parent="pegs" index="20" instance=ExtResource( 5 )]
 
 position = Vector2( 177.255, 625.051 )
 
-[node name="Peg19" parent="pegs" index="22" instance=ExtResource( 5 )]
+[node name="Peg19" parent="pegs" index="21" instance=ExtResource( 5 )]
 
 position = Vector2( 129.254, 680.051 )
 
-[node name="Peg26" parent="pegs" index="23" instance=ExtResource( 5 )]
-
-position = Vector2( 76.3505, 734.282 )
-
-[node name="Peg35" parent="pegs" index="24" instance=ExtResource( 5 )]
-
-position = Vector2( 124.135, 788.267 )
-
-[node name="Peg24" parent="pegs" index="25" instance=ExtResource( 5 )]
+[node name="Peg24" parent="pegs" index="22" instance=ExtResource( 5 )]
 
 position = Vector2( 574.263, 738.193 )
 
-[node name="Peg28" parent="pegs" index="26" instance=ExtResource( 5 )]
+[node name="Peg28" parent="pegs" index="23" instance=ExtResource( 5 )]
 
 position = Vector2( 678.398, 735.191 )
 
-[node name="Peg33" parent="pegs" index="27" instance=ExtResource( 5 )]
+[node name="Peg33" parent="pegs" index="24" instance=ExtResource( 5 )]
 
 position = Vector2( 726.183, 787.948 )
 
-[node name="DestructablePeg" parent="pegs" index="28" instance=ExtResource( 6 )]
+[node name="DestructablePeg" parent="pegs" index="25" instance=ExtResource( 6 )]
 
 position = Vector2( 322.909, 468.024 )
 
-[node name="DestructablePeg2" parent="pegs" index="29" instance=ExtResource( 6 )]
+[node name="DestructablePeg2" parent="pegs" index="26" instance=ExtResource( 6 )]
 
 position = Vector2( 470.238, 626.403 )
 
-[node name="DestructablePeg7" parent="pegs" index="30" instance=ExtResource( 6 )]
+[node name="DestructablePeg7" parent="pegs" index="27" instance=ExtResource( 6 )]
 
 position = Vector2( 470.211, 517.527 )
 
-[node name="DestructablePeg3" parent="pegs" index="31" instance=ExtResource( 6 )]
+[node name="DestructablePeg3" parent="pegs" index="28" instance=ExtResource( 6 )]
 
-position = Vector2( 23.3396, 784.781 )
+position = Vector2( 173.522, 735.286 )
 
-[node name="DestructablePeg4" parent="pegs" index="32" instance=ExtResource( 6 )]
+[node name="DestructablePeg4" parent="pegs" index="29" instance=ExtResource( 6 )]
 
 position = Vector2( 221.794, 680.261 )
 
-[node name="DestructablePeg5" parent="pegs" index="33" instance=ExtResource( 6 )]
+[node name="DestructablePeg5" parent="pegs" index="30" instance=ExtResource( 6 )]
 
 position = Vector2( 371.437, 734.397 )
 
-[node name="DestructablePeg6" parent="pegs" index="34" instance=ExtResource( 6 )]
+[node name="DestructablePeg6" parent="pegs" index="31" instance=ExtResource( 6 )]
 
 position = Vector2( 625.998, 682.997 )
 
-[node name="DestructablePeg8" parent="pegs" index="35" instance=ExtResource( 6 )]
+[node name="DestructablePeg8" parent="pegs" index="32" instance=ExtResource( 6 )]
 
 position = Vector2( 628.02, 789.685 )
 
 [node name="bumpers" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( -375, -667 )
 _sections_unfolded = [ "Transform" ]
 
@@ -186,39 +172,129 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 55.7932, 1290.19 )
 hits_remaining = 1
 
-[node name="Bumper2" parent="bumpers" index="1" instance=ExtResource( 7 )]
+[node name="Bumper10" parent="bumpers" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 55.7932, 49.0472 )
+hits_remaining = 1
+
+[node name="Bumper14" parent="bumpers" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 48.2649, 147.231 )
+hits_remaining = 1
+
+[node name="Bumper17" parent="bumpers" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 49.0877, 254.638 )
+hits_remaining = 1
+
+[node name="Bumper18" parent="bumpers" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 47.4175, 358.705 )
+hits_remaining = 1
+
+[node name="Bumper19" parent="bumpers" index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 46.5948, 457.736 )
+hits_remaining = 1
+
+[node name="Bumper20" parent="bumpers" index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 49.1122, 554.698 )
+hits_remaining = 1
+
+[node name="Bumper21" parent="bumpers" index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 47.6049, 652.823 )
+hits_remaining = 1
+
+[node name="Bumper22" parent="bumpers" index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 47.6049, 750.8 )
+hits_remaining = 1
+
+[node name="Bumper23" parent="bumpers" index="9" instance=ExtResource( 7 )]
+
+position = Vector2( 46.0975, 846.056 )
+hits_remaining = 1
+
+[node name="Bumper24" parent="bumpers" index="10" instance=ExtResource( 7 )]
+
+position = Vector2( 47.4578, 935.841 )
+hits_remaining = 1
+
+[node name="Bumper25" parent="bumpers" index="11" instance=ExtResource( 7 )]
+
+position = Vector2( 46.0975, 1028.35 )
+hits_remaining = 1
+
+[node name="Bumper26" parent="bumpers" index="12" instance=ExtResource( 7 )]
+
+position = Vector2( 46.0975, 1114.05 )
+hits_remaining = 1
+
+[node name="Bumper27" parent="bumpers" index="13" instance=ExtResource( 7 )]
+
+position = Vector2( 47.4579, 1202.48 )
+hits_remaining = 1
+
+[node name="Bumper2" parent="bumpers" index="14" instance=ExtResource( 7 )]
 
 position = Vector2( 147.76, 1290.19 )
 hits_remaining = 1
 
-[node name="Bumper3" parent="bumpers" index="2" instance=ExtResource( 7 )]
+[node name="Bumper13" parent="bumpers" index="15" instance=ExtResource( 7 )]
+
+position = Vector2( 147.76, 49.0471 )
+hits_remaining = 1
+
+[node name="Bumper3" parent="bumpers" index="16" instance=ExtResource( 7 )]
 
 position = Vector2( 238.619, 1289.09 )
 hits_remaining = 1
 
-[node name="Bumper4" parent="bumpers" index="3" instance=ExtResource( 7 )]
+[node name="Bumper16" parent="bumpers" index="17" instance=ExtResource( 7 )]
+
+position = Vector2( 238.619, 47.9392 )
+hits_remaining = 1
+
+[node name="Bumper4" parent="bumpers" index="18" instance=ExtResource( 7 )]
 
 position = Vector2( 333.91, 1290.19 )
 hits_remaining = 1
 
-[node name="Bumper5" parent="bumpers" index="4" instance=ExtResource( 7 )]
+[node name="Bumper5" parent="bumpers" index="19" instance=ExtResource( 7 )]
 
 position = Vector2( 425.877, 1291.3 )
 hits_remaining = 1
 
-[node name="Bumper6" parent="bumpers" index="5" instance=ExtResource( 7 )]
+[node name="Bumper6" parent="bumpers" index="20" instance=ExtResource( 7 )]
 
 position = Vector2( 518.952, 1290.19 )
 hits_remaining = 1
 
-[node name="Bumper7" parent="bumpers" index="6" instance=ExtResource( 7 )]
+[node name="Bumper12" parent="bumpers" index="21" instance=ExtResource( 7 )]
+
+position = Vector2( 518.952, 49.0469 )
+hits_remaining = 1
+
+[node name="Bumper7" parent="bumpers" index="22" instance=ExtResource( 7 )]
 
 position = Vector2( 608.703, 1290.2 )
 hits_remaining = 1
 
-[node name="Bumper8" parent="bumpers" index="7" instance=ExtResource( 7 )]
+[node name="Bumper15" parent="bumpers" index="23" instance=ExtResource( 7 )]
+
+position = Vector2( 608.703, 49.0476 )
+hits_remaining = 1
+
+[node name="Bumper8" parent="bumpers" index="24" instance=ExtResource( 7 )]
 
 position = Vector2( 698.454, 1289.09 )
+hits_remaining = 1
+
+[node name="Bumper11" parent="bumpers" index="25" instance=ExtResource( 7 )]
+
+position = Vector2( 698.454, 47.9393 )
 hits_remaining = 1
 
 [connection signal="ball_left_playable_area" from="PlayableAreaBoundary" to="." method="_on_PlayableAreaBoundary_ball_left_playable_area"]
