@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/topTiles.png-78c8d359789956d3aeb1c50b178e4522.stex"
+path="res://.import/details.png-903ee090dcd48a21107662a436dd55c8.stex"
 
 [deps]
 
-source_file="res://assets/ui/topTiles.png"
-dest_files=[ "res://.import/topTiles.png-78c8d359789956d3aeb1c50b178e4522.stex" ]
+source_file="res://assets/ui/details.png"
+dest_files=[ "res://.import/details.png-903ee090dcd48a21107662a436dd55c8.stex" ]
 
 [params]
 
@@ -20,10 +20,10 @@ flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

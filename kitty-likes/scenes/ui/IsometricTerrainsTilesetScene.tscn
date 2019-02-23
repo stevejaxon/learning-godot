@@ -1,146 +1,367 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/ui/fullTiles.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/topTiles.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/details.png" type="Texture" id=3]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
-[node name="Terrain1" type="Sprite" parent="." index="0"]
+[node name="Full Terrains" type="Node2D" parent="." index="0"]
+
+editor/display_folded = true
+visible = false
+
+[node name="Terrain1" type="Sprite" parent="Full Terrains" index="0"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain2" type="Sprite" parent="." index="1"]
+[node name="Terrain2" type="Sprite" parent="Full Terrains" index="1"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 65, 0, 65, 89 )
 
-[node name="Terrain3" type="Sprite" parent="." index="2"]
+[node name="Terrain3" type="Sprite" parent="Full Terrains" index="2"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 130, 0, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain4" type="Sprite" parent="." index="3"]
+[node name="Terrain4" type="Sprite" parent="Full Terrains" index="3"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 195, 0, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain5" type="Sprite" parent="." index="4"]
+[node name="Terrain5" type="Sprite" parent="Full Terrains" index="4"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 89, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain6" type="Sprite" parent="." index="5"]
+[node name="Terrain6" type="Sprite" parent="Full Terrains" index="5"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 65, 89, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain7" type="Sprite" parent="." index="6"]
+[node name="Terrain7" type="Sprite" parent="Full Terrains" index="6"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 130, 89, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain8" type="Sprite" parent="." index="7"]
+[node name="Terrain8" type="Sprite" parent="Full Terrains" index="7"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 195, 89, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain9" type="Sprite" parent="." index="8"]
+[node name="Terrain9" type="Sprite" parent="Full Terrains" index="8"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 178, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain10" type="Sprite" parent="." index="9"]
+[node name="Terrain10" type="Sprite" parent="Full Terrains" index="9"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 65, 178, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain11" type="Sprite" parent="." index="10"]
+[node name="Terrain11" type="Sprite" parent="Full Terrains" index="10"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 130, 178, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain12" type="Sprite" parent="." index="11"]
+[node name="Terrain12" type="Sprite" parent="Full Terrains" index="11"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 195, 178, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain13" type="Sprite" parent="." index="12"]
+[node name="Terrain13" type="Sprite" parent="Full Terrains" index="12"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 267, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain14" type="Sprite" parent="." index="13"]
+[node name="Terrain14" type="Sprite" parent="Full Terrains" index="13"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 65, 267, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain15" type="Sprite" parent="." index="14"]
+[node name="Terrain15" type="Sprite" parent="Full Terrains" index="14"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 130, 267, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain16" type="Sprite" parent="." index="15"]
+[node name="Terrain16" type="Sprite" parent="Full Terrains" index="15"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 195, 267, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain17" type="Sprite" parent="." index="16"]
+[node name="Terrain17" type="Sprite" parent="Full Terrains" index="16"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 356, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain18" type="Sprite" parent="." index="17"]
+[node name="Terrain18" type="Sprite" parent="Full Terrains" index="17"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 65, 356, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain19" type="Sprite" parent="." index="18"]
+[node name="Terrain19" type="Sprite" parent="Full Terrains" index="18"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 130, 356, 65, 89 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Terrain20" type="Sprite" parent="." index="19"]
+[node name="Terrain20" type="Sprite" parent="Full Terrains" index="19"]
 
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 195, 356, 65, 89 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Terrain Decorations" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="Top 1" type="Sprite" parent="Terrain Decorations" index="0"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top 2" type="Sprite" parent="Terrain Decorations" index="1"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 55, 0, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top 3" type="Sprite" parent="Terrain Decorations" index="2"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 110, 0, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top 4" type="Sprite" parent="Terrain Decorations" index="3"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 57, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top 5" type="Sprite" parent="Terrain Decorations" index="4"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 55, 57, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top 6" type="Sprite" parent="Terrain Decorations" index="5"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 110, 57, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top 7" type="Sprite" parent="Terrain Decorations" index="6"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 114, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top 8" type="Sprite" parent="Terrain Decorations" index="7"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 55, 114, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top 9" type="Sprite" parent="Terrain Decorations" index="8"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 171, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Top 10" type="Sprite" parent="Terrain Decorations" index="9"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 55, 171, 55, 57 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 1" type="Sprite" parent="Terrain Decorations" index="10"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 33, 12 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 2" type="Sprite" parent="Terrain Decorations" index="11"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 12, 33, 12 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 3" type="Sprite" parent="Terrain Decorations" index="12"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 24, 33, 12 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 4" type="Sprite" parent="Terrain Decorations" index="13"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 36, 33, 12 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 5" type="Sprite" parent="Terrain Decorations" index="14"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( -1, 48, 34, 10 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 6" type="Sprite" parent="Terrain Decorations" index="15"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 58, 33, 12 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 7" type="Sprite" parent="Terrain Decorations" index="16"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 70, 33, 12 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 8" type="Sprite" parent="Terrain Decorations" index="17"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 82, 33, 10 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 9" type="Sprite" parent="Terrain Decorations" index="18"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 92, 29, 33 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 10" type="Sprite" parent="Terrain Decorations" index="19"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 33, -1, 29, 34 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 11" type="Sprite" parent="Terrain Decorations" index="20"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 33, 33, 29, 33 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 12" type="Sprite" parent="Terrain Decorations" index="21"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 33, 66, 14, 20 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 13" type="Sprite" parent="Terrain Decorations" index="22"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 48, 66, 14, 21 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 14" type="Sprite" parent="Terrain Decorations" index="23"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 29, 92, 29, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 15" type="Sprite" parent="Terrain Decorations" index="24"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 73, 83, 12, 10 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 16" type="Sprite" parent="Terrain Decorations" index="25"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 63, 73, 12, 9 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 17" type="Sprite" parent="Terrain Decorations" index="26"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 63, 62, 11, 9 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 18" type="Sprite" parent="Terrain Decorations" index="27"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 62, 51, 12, 9 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 19" type="Sprite" parent="Terrain Decorations" index="28"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 62, 40, 11, 9 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Decoration 20" type="Sprite" parent="Terrain Decorations" index="29"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 58, 86, 15, 20 )
 _sections_unfolded = [ "Region" ]
 
 
