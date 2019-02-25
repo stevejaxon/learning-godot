@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/Player1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player2.tscn" type="PackedScene" id=3]
 
-[node name="TwoPlayerBoard" type="Node2D"]
+[node name="TwoPlayerBoard" type="Node2D" index="0"]
 
 [node name="Base" type="TileMap" parent="." index="0"]
 
