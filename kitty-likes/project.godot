@@ -11,6 +11,7 @@ config_version=3
 [application]
 
 config/name="kitty-likes"
+run/main_scene="res://scenes/ui/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -23,5 +24,5 @@ window/stretch/aspect="keep"
 
 [rendering]
 
-environment/default_clear_color=Color( 0.701961, 0.8, 0.866667, 1 )
+environment/default_clear_color=Color( 0.152941, 0.160784, 0.211765, 1 )
 environment/default_environment="res://default_env.tres"
