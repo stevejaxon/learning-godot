@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/ui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/ui/TitleScreen.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/Kitty Likes Title.png" type="Texture" id=3]
 [ext_resource path="res://scenes/ui/NewGameButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/ui/OptionsButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/ui/FadeInSceneTransition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/ui/IsometricTerrains.tres" type="TileSet" id=6]
+[ext_resource path="res://assets/ui/default_font_small.tres" type="DynamicFont" id=7]
+[ext_resource path="res://scenes/ui/FadeInSceneTransition.tscn" type="PackedScene" id=8]
 
 [node name="TitleScreen" type="Control" index="0"]
 
@@ -23,7 +25,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Theme" ]
 
 [node name="Menu" type="VBoxContainer" parent="." index="0"]
 
@@ -53,7 +54,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1159.0
+margin_right = 1040.0
 margin_bottom = 239.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -72,8 +73,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 243.0
-margin_right = 1159.0
-margin_bottom = 405.0
+margin_right = 1040.0
+margin_bottom = 538.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -88,8 +89,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 577.0
-margin_bottom = 162.0
+margin_right = 518.0
+margin_bottom = 295.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -102,15 +103,15 @@ _sections_unfolded = [ "Size Flags", "custom_constants" ]
 
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" index="0" instance=ExtResource( 4 )]
 
-margin_top = 11.0
-margin_right = 577.0
-margin_bottom = 71.0
+margin_top = 77.0
+margin_right = 518.0
+margin_bottom = 137.0
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" index="1" instance=ExtResource( 5 )]
 
-margin_top = 91.0
-margin_right = 577.0
-margin_bottom = 151.0
+margin_top = 157.0
+margin_right = 518.0
+margin_bottom = 217.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow" index="1"]
 
@@ -118,9 +119,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 581.0
-margin_right = 1159.0
-margin_bottom = 162.0
+margin_left = 522.0
+margin_right = 1040.0
+margin_bottom = 295.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -128,7 +129,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 use_top_left = false
-_sections_unfolded = [ "Material", "Size Flags", "Visibility" ]
+_sections_unfolded = [ "Material" ]
 
 [node name="Characters" type="TextureRect" parent="Menu/CenterRow/CenterContainer" index="0"]
 
@@ -136,10 +137,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 289.0
-margin_top = 81.0
-margin_right = 289.0
-margin_bottom = 81.0
+margin_left = 259.0
+margin_top = 147.0
+margin_right = 259.0
+margin_bottom = 147.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -148,27 +149,71 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch_mode = 0
 
+[node name="BaseTileMap" type="TileMap" parent="Menu/CenterRow/CenterContainer" index="1"]
+
+mode = 1
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -262137, 19, 0, -262136, 19, 0, -262135, 2, 0, -196602, 19, 0, -196601, 19, 0, -196600, 19, 0, -196599, 2, 0, -131067, 19, 0, -131066, 19, 0, -131065, 19, 0, -131064, 19, 0, -131063, 2, 0, -65532, 19, 0, -65531, 19, 0, -65530, 19, 0, -65529, 19, 0, -65528, 2, 0, 4, 19, 0, 5, 19, 0, 6, 19, 0, 7, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0 )
+
+[node name="TileMap" type="TileMap" parent="Menu/CenterRow/CenterContainer" index="2"]
+
+z_index = 1
+mode = 0
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 983057, 58, 0, 1114127, 58, 0, 1114131, 61, 0, 1179665, 58, 0, 1245199, 61, 0, 1310739, 61, 0, 1376273, 61, 0, 1572906, 59, 0, 1703978, 62, 0, 1703979, 63, 0, 1769518, 62, 0, 1835047, 62, 0, 1900586, 62, 0, 1966121, 62, 0, 2031656, 62, 0, 2031658, 62, 0 )
+_sections_unfolded = [ "Cell", "Z Index" ]
+
 [node name="VersionLabel" type="Label" parent="Menu" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 409.0
-margin_right = 1159.0
-margin_bottom = 572.0
+margin_top = 542.0
+margin_right = 1040.0
+margin_bottom = 560.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 3
-text = "Version 0.0.1
-Casino Cats"
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.898039, 0.870588, 0.827451, 1 )
+text = "Version 0.0.1 designed by Casino Cats, created by Steve Jaxon"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="FadeIn" parent="." index="1" instance=ExtResource( 6 )]
+[node name="FadeIn" parent="." index="1" instance=ExtResource( 8 )]
 
 
