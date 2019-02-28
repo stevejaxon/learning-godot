@@ -4,13 +4,11 @@
 [ext_resource path="res://assets/ui/Play Game.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui/Play Game_highlighted.png" type="Texture" id=3]
 
-
 [node name="NewGameButton" index="0" instance=ExtResource( 1 )]
 
 margin_bottom = 141.0
 texture_normal = ExtResource( 2 )
 texture_hover = ExtResource( 3 )
-texture_focused = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Textures" ]
 scene_to_load = "res://scenes/games/TwoPlayerBoard.tscn"
 
