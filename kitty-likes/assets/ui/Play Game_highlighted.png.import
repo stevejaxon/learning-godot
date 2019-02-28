@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ck3.png-079d3c7a8ebb23c1cdede4d7b7b892e7.stex"
+path="res://.import/Play Game_highlighted.png-5c4979c4608404f10736e97265a7ebdd.stex"
 
 [deps]
 
-source_file="res://assets/ck3.png"
-dest_files=[ "res://.import/ck3.png-079d3c7a8ebb23c1cdede4d7b7b892e7.stex" ]
+source_file="res://assets/ui/Play Game_highlighted.png"
+dest_files=[ "res://.import/Play Game_highlighted.png-5c4979c4608404f10736e97265a7ebdd.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

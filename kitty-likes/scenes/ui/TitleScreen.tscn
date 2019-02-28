@@ -97,21 +97,19 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 20
 alignment = 1
-_sections_unfolded = [ "Size Flags", "custom_constants" ]
 
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" index="0" instance=ExtResource( 4 )]
 
-margin_top = 77.0
+margin_top = 4.0
 margin_right = 518.0
-margin_bottom = 137.0
+margin_bottom = 145.0
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" index="1" instance=ExtResource( 5 )]
 
-margin_top = 157.0
+margin_top = 149.0
 margin_right = 518.0
-margin_bottom = 217.0
+margin_bottom = 290.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow" index="1"]
 
