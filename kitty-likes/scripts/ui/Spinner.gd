@@ -9,7 +9,7 @@ extends Control
 # A random number in this range will decide which direction the player moves next turn.
 
 func _ready():
-	spin(1)
+	spin(0)
 	
 func spin(result):
 	yield(_baseSpin(), "completed")
