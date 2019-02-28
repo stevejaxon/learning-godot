@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/ui/default_font_small.tres" type="DynamicFont" id=7]
 [ext_resource path="res://scenes/ui/FadeInSceneTransition.tscn" type="PackedScene" id=8]
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -28,6 +28,7 @@ script = ExtResource( 2 )
 
 [node name="Menu" type="VBoxContainer" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -68,6 +69,7 @@ _sections_unfolded = [ "Margin", "Material", "Theme" ]
 
 [node name="CenterRow" type="HBoxContainer" parent="Menu" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -85,6 +87,7 @@ alignment = 0
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -101,18 +104,19 @@ alignment = 1
 
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" index="0" instance=ExtResource( 4 )]
 
-margin_top = 4.0
+margin_top = 56.0
 margin_right = 518.0
-margin_bottom = 145.0
+margin_bottom = 146.0
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" index="1" instance=ExtResource( 5 )]
 
-margin_top = 149.0
+margin_top = 150.0
 margin_right = 518.0
-margin_bottom = 290.0
+margin_bottom = 238.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
