@@ -1,18 +1,278 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/ui/Spinner.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/arrow.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/IsometricTerrains.tres" type="TileSet" id=3]
 
-[node name="Spinner" type="Node2D" index="0"]
+[sub_resource type="Animation" id=2]
 
+resource_name = "0"
+length = 1.0
+loop = false
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 313.0, 365.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.125, 0.2 ), Vector2( 0.2, 0.2 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "1"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 52.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.15, 0.2 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "2"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 52.0, 128.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.15, 0.2 ), Vector2( 0.15, 0.2 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "3"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 128.0, 175.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.15, 0.2 ), Vector2( 0.2, 0.2 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "4"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 175.0, 228.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.125, 0.2 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "5"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 228.0, 313.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.125, 0.2 ), Vector2( 0.125, 0.2 ) ]
+}
+
+[node name="Spinner" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 640, 360 )
 scale = Vector2( 0.2, 0.2 )
+z_index = 2
 texture = ExtResource( 2 )
 offset = Vector2( 200, 2 )
-_sections_unfolded = [ "Offset", "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="TileBackground" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 640, 400 )
+z_index = 1
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="TileMap" type="TileMap" parent="TileBackground" index="0"]
+
+mode = 1
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 32
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -65537, 37, 0, -131072, 3, 0, -2, 34, 0, -1, 39, 0, -65536, 29, 0, 65534, 32, 0, 65535, 31, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="ColorRect" type="ColorRect" parent="." index="2"]
+
+modulate = Color( 0.152941, 0.160784, 0.211765, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.588235 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/0 = SubResource( 2 )
+anims/1 = SubResource( 3 )
+anims/2 = SubResource( 4 )
+anims/3 = SubResource( 5 )
+anims/4 = SubResource( 6 )
+anims/5 = SubResource( 7 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 
