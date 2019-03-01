@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/ui/default_font_small.tres" type="DynamicFont" id=7]
 [ext_resource path="res://scenes/ui/FadeInSceneTransition.tscn" type="PackedScene" id=8]
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -28,7 +28,6 @@ script = ExtResource( 2 )
 
 [node name="Menu" type="VBoxContainer" parent="." index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -69,7 +68,6 @@ _sections_unfolded = [ "Margin", "Material", "Theme" ]
 
 [node name="CenterRow" type="HBoxContainer" parent="Menu" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -116,7 +114,6 @@ margin_bottom = 238.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -170,6 +167,7 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -262137, 19, 0, -262136, 19, 0, -262135, 2, 0, -196602, 19, 0, -196601, 19, 0, -196600, 19, 0, -196599, 2, 0, -131067, 19, 0, -131066, 19, 0, -131065, 19, 0, -131064, 19, 0, -131063, 2, 0, -65532, 19, 0, -65531, 19, 0, -65530, 19, 0, -65529, 19, 0, -65528, 2, 0, 4, 19, 0, 5, 19, 0, 6, 19, 0, 7, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0 )
+_sections_unfolded = [ "Cell" ]
 
 [node name="TileMap" type="TileMap" parent="Menu/CenterRow/CenterContainer" index="2"]
 
