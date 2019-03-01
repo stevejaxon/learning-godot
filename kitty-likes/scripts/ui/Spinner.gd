@@ -8,8 +8,8 @@ extends Control
 #
 # A random number in this range will decide which direction the player moves next turn.
 
-func _ready():
-	spin(0)
+func _init(result):
+	spin(result)
 	
 func spin(result):
 	yield(_baseSpin(), "completed")
