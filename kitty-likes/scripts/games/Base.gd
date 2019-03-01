@@ -1,7 +1,7 @@
 extends TileMap
 
 const PLAYER_1_START_POSITION = Vector2(1, 1)
-const PLAYER_2_START_POSITION = Vector2(-1, -1)
+const PLAYER_2_START_POSITION = Vector2(4, 7)
 # Note: this is not an ideal solution, but it's handy due to the way that the isometric tilemap returns the occupied cells and the difficulty of converting this back to an cartesian grid
 const BOARD_ROW_SIZES = [5,6,7,8,9,8,7,6,5]
 
@@ -28,19 +28,22 @@ func _createGridIndex():
 			currentY = coord.y
 		elif currentY != coord.y:
 			currentY = coord.y
-			if grid[currentRow].size() == BOARD_ROW_SIZES[currentRow]:
-				# There seems to be some odd behaviour where the coordinates are the mirror of what I was expecting...
-				# Reversing to get the expected logic
-				grid[currentRow].invert()
+			if grid[currentRow].size() == BOARD_ROW_SIZES[currentRow]:				
 				currentRow = currentRow + 1
 			row = currentRow
 		
 		grid[row].append(coord)
 		row = row + 1
 		
+	for row in grid:
+		# The cells are returned from right to left so we need to invert them to get the expected format
+		row.invert()
+		
 func _placePlayers():
 	var player1Coord = grid[PLAYER_1_START_POSITION.y][PLAYER_1_START_POSITION.x]
 	_placePlayer(Player1, player1Coord)
+	var player2Coord = grid[PLAYER_2_START_POSITION.y][PLAYER_2_START_POSITION.x]
+	_placePlayer(Player2, player2Coord)
 	
 func _placePlayer(type, coord):
 	var newPlayer = type.instance()

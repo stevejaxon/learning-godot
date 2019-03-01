@@ -1,8 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/games/TwoPlayerBoard.gd" type="Script" id=1]
+[ext_resource path="res://scripts/games/TwoPlayerBoard.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/IsometricTerrains.tres" type="TileSet" id=2]
-[ext_resource path="res://scenes/games/Base.gd" type="Script" id=3]
+[ext_resource path="res://scripts/games/Base.gd" type="Script" id=3]
+
+
 
 [node name="TwoPlayerBoard" type="Node2D" index="0"]
 
@@ -11,6 +13,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Base" type="TileMap" parent="." index="0"]
 
+editor/display_folded = true
 mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 101 )
