@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/ui/default_font_small.tres" type="DynamicFont" id=7]
 [ext_resource path="res://scenes/ui/FadeInSceneTransition.tscn" type="PackedScene" id=8]
 
-[node name="TitleScreen" type="Control" index="0"]
+[node name="TitleScreen" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0

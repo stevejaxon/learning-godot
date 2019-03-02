@@ -21,7 +21,9 @@ tracks/0/keys = {
 "values": [ Vector2( 0.1, 0.1 ), Vector2( 0.11, 0.11 ), Vector2( 0.11, 0.11 ), Vector2( 0.11, 0.11 ), Vector2( 0.1, 0.1 ), Vector2( 0.1, 0.1 ), Vector2( 0.09, 0.09 ), Vector2( 0.09, 0.09 ), Vector2( 0.1, 0.1 ), Vector2( 0.1, 0.1 ) ]
 }
 
-[node name="Player1" type="Node2D" index="0"]
+[node name="Player1" type="Node2D"]
+
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

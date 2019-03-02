@@ -4,6 +4,8 @@
 
 [node name="Player1" type="Node2D"]
 
+_sections_unfolded = [ "Z Index" ]
+
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 0.1, 0.1 )
