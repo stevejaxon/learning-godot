@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/ui/Spinner.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/arrow.png" type="Texture" id=2]
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 313.0, 365.0 ]
+"values": [ 305.0, 362.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:scale")
@@ -32,7 +32,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.15, 0.2 ), Vector2( 0.2, 0.2 ) ]
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.2 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -51,7 +51,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 54.0 ]
+"values": [ 0.0, 56.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:scale")
@@ -82,7 +82,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 54.0, 126.0 ]
+"values": [ 56.0, 120.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:scale")
@@ -94,7 +94,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.175, 0.2 ), Vector2( 0.175, 0.2 ) ]
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.2 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -113,7 +113,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 128.0, 175.0 ]
+"values": [ 120.0, 178.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:scale")
@@ -125,7 +125,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.175, 0.2 ), Vector2( 0.2, 0.2 ) ]
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.2 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -135,7 +135,7 @@ length = 1.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/path = NodePath("Sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -144,10 +144,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 175.0, 228.0 ]
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.2 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("Sprite:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -156,7 +156,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.15, 0.2 ) ]
+"values": [ 178.0, 237.0 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -175,7 +175,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 227.0, 313.0 ]
+"values": [ 237.0, 305.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:scale")
@@ -187,29 +187,49 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.15, 0.2 ), Vector2( 0.15, 0.2 ) ]
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.2, 0.2 ) ]
 }
 
-[node name="Spinner" type="Control"]
+[sub_resource type="Animation" id=7]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+resource_name = "init"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ) ]
+}
+
+[node name="Spinner" type="Node2D"]
+
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 position = Vector2( 640, 330 )
-rotation = 5.46288
-scale = Vector2( 0.15, 0.2 )
+scale = Vector2( 0.2, 0.2 )
 z_index = 5
 texture = ExtResource( 2 )
 offset = Vector2( 200, 2 )
@@ -256,6 +276,7 @@ anims/2 = SubResource( 3 )
 anims/3 = SubResource( 4 )
 anims/4 = SubResource( 5 )
 anims/5 = SubResource( 6 )
+anims/init = SubResource( 7 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 

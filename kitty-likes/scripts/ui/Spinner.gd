@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 # The spinner works on a hexadecemal, isometric grid of numbers from 0 - 5 around a position e.g. if the player is in the position X then the position is numbered as such:
 #
@@ -8,12 +8,16 @@ extends Control
 #
 # A random number in this range will decide which direction the player moves next turn.
 
-func _init(result):
-	spin(result)
-	
 func spin(result):
+	show()
+	yield(_reset(), "completed")
 	yield(_baseSpin(), "completed")
 	yield(_finalTicks(result), "completed")
+	hide()
+	
+func _reset():
+	$AnimationPlayer.play("init")
+	yield(get_node("AnimationPlayer"), "animation_finished")
 
 func _baseSpin():
 	yield(_playFastSpin(), "completed")
