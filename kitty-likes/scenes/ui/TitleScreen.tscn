@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/ui/default_font_small.tres" type="DynamicFont" id=7]
 [ext_resource path="res://scenes/ui/FadeInSceneTransition.tscn" type="PackedScene" id=8]
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -114,6 +114,7 @@ margin_bottom = 238.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -152,7 +153,7 @@ stretch_mode = 0
 
 mode = 1
 tile_set = ExtResource( 6 )
-cell_size = Vector2( 64, 64 )
+cell_size = Vector2( 64, 100 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
@@ -166,7 +167,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -262137, 19, 0, -262136, 19, 0, -262135, 2, 0, -196602, 19, 0, -196601, 19, 0, -196600, 19, 0, -196599, 2, 0, -131067, 19, 0, -131066, 19, 0, -131065, 19, 0, -131064, 19, 0, -131063, 2, 0, -65532, 19, 0, -65531, 19, 0, -65530, 19, 0, -65529, 19, 0, -65528, 2, 0, 4, 19, 0, 5, 19, 0, 6, 19, 0, 7, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0 )
+tile_data = PoolIntArray( -393209, 22, 0, -393208, 22, 0, -327674, 39, 0, -327673, 39, 0, -327672, 22, 0, -262139, 39, 0, -262138, 39, 0, -262137, 19, 0, -262136, 22, 0, -196604, 39, 0, -196603, 39, 0, -196602, 19, 0, -196601, 22, 0, -131068, 39, 0, -131067, 19, 0, -131066, 22, 0, -65532, 22, 0, -65531, 22, 0 )
 _sections_unfolded = [ "Cell" ]
 
 [node name="TileMap" type="TileMap" parent="Menu/CenterRow/CenterContainer" index="2"]
@@ -188,7 +189,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 983057, 58, 0, 1114127, 58, 0, 1114131, 61, 0, 1179665, 58, 0, 1245199, 61, 0, 1310739, 61, 0, 1376273, 61, 0, 1572906, 59, 0, 1703978, 62, 0, 1703979, 63, 0, 1769518, 62, 0, 1835047, 62, 0, 1900586, 62, 0, 1966121, 62, 0, 2031656, 62, 0, 2031658, 62, 0 )
+tile_data = PoolIntArray( 1048599, 61, 0, 1114131, 61, 0, 1114133, 60, 0, 1179665, 58, 0, 1179672, 61, 0, 1245204, 61, 0, 1310739, 61, 0, 1376273, 64, 0, 1376277, 64, 0, 1441810, 66, 0, 1572906, 59, 0, 1703978, 62, 0, 1703979, 63, 0, 1703982, 67, 0, 1769518, 62, 0, 1835047, 62, 0, 1835057, 62, 0, 1900586, 62, 0, 1966124, 67, 0, 1966127, 62, 0 )
 _sections_unfolded = [ "Cell", "Z Index" ]
 
 [node name="VersionLabel" type="Label" parent="Menu" index="2"]
