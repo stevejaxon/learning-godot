@@ -1,5 +1,7 @@
 extends Node2D
 
+signal spin_animation_finished
+
 # The spinner works on a hexadecemal, isometric grid of numbers from 0 - 5 around a position e.g. if the player is in the position X then the position is numbered as such:
 #
 # 4   5
@@ -14,6 +16,7 @@ func spin(result):
 	yield(_baseSpin(), "completed")
 	yield(_finalTicks(result), "completed")
 	hide()
+	emit_signal("spin_animation_finished")
 	
 func _reset():
 	$AnimationPlayer.play("init")

@@ -13,7 +13,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Base" type="TileMap" parent="." index="0"]
 
-editor/display_folded = true
 mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 101 )

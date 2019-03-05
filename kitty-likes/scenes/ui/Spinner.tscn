@@ -221,7 +221,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.2, 0.2 ) ]
 }
 
-[node name="Spinner" type="Node2D"]
+[node name="Spinner" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
