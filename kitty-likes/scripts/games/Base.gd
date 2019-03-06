@@ -81,11 +81,10 @@ func _getNextCoordinates(current, vector):
 	var nextRowLength = grid[nextRow].size()
 	var nextX = current.x + vector.x
 	# Deal with the situation where the player moves diagonally on a hexagonal board
-	if currentRowLength != nextRowLength and vector.y != 0:
-		if currentRowLength > nextRowLength and vector.x > 0:
-			nextX = current.x
-		elif currentRowLength < nextRowLength and vector.x < 0:
-			nextX = current.x
+	if currentRowLength > nextRowLength and vector.x > 0:
+		nextX = current.x
+	elif currentRowLength < nextRowLength and vector.x < 0:
+		nextX = current.x
 	# Use the above information to determine the resulting coordinates
 	if nextX < 0:
 		return Vector2(nextRowLength - 1, nextRow) 
