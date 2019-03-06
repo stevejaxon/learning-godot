@@ -13,11 +13,23 @@ func _ready():
 	yield(_take_turn($Base.PLAYER_1), "completed")
 	yield(_take_turn($Base.PLAYER_1), "completed")
 	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
 
 func _take_turn(player):
-	# TODO put randomness back in after all of the correct directional handling is resolved
 	#var rand = randi() % 6
-	var rand = 3
+	var rand = 2
 	emit_signal("new_random_number", rand)
 	yield($Spinner, "spin_animation_finished")
 	emit_signal("move_player", player, _mapRandomNumberToVector2(rand))

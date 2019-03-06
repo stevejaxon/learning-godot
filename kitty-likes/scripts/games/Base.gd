@@ -4,7 +4,7 @@ enum Player { PLAYER_1, PLAYER_2 }
 
 signal player_move_finished
 
-const PLAYER_1_START_POSITION = Vector2(1, 1)
+const PLAYER_1_START_POSITION = Vector2(2, 2)
 const PLAYER_2_START_POSITION = Vector2(4, 7)
 # Note: this is not an ideal solution, but it's handy due to the way that the isometric tilemap returns the occupied cells and the difficulty of converting this back to an cartesian grid
 const BOARD_ROW_SIZES = [5,6,7,8,9,8,7,6,5]
@@ -69,29 +69,30 @@ func movePlayer(player, vector):
 	emit_signal("player_move_finished")
 	
 func _getNextCoordinates(current, vector):
-	match vector:
-		Vector2(-1, -1):
-			pass
-		Vector2(1, -1):
-			pass
-		Vector2(1, 0):
-			return _getNextHorizontalCoordinate(current, 1)
-		Vector2(1, 1):
-			pass
-		Vector2(-1, 1):
-			pass
-		Vector2(-1, 0):
-			return _getNextHorizontalCoordinate(current, -1)
+	# Determine the next row that the player will move to
+	var nextRow = current.y + vector.y
+	# Handle the situation when the player wraps around from the top to the bottom or bottom to top
+	if nextRow < 0:
+		nextRow = grid.size() - 1
+	elif nextRow == grid.size():
+		nextRow = 0
 	
-func _getNextHorizontalCoordinate(current, x):
-	var nextX = current.x + x
-	var length = grid[current.y].size()
+	var currentRowLength = grid[current.y].size()
+	var nextRowLength = grid[nextRow].size()
+	var nextX = current.x + vector.x
+	# Deal with the situation where the player moves diagonally on a hexagonal board
+	if currentRowLength != nextRowLength and vector.y != 0:
+		if currentRowLength > nextRowLength and vector.x > 0:
+			nextX = current.x
+		elif currentRowLength < nextRowLength and vector.x < 0:
+			nextX = current.x
+	# Use the above information to determine the resulting coordinates
 	if nextX < 0:
-		return Vector2(length - 1, current.y) 
-	elif nextX < length:
-		return Vector2(nextX, current.y)
-	elif nextX == length:
-		return Vector2(0, current.y)
+		return Vector2(nextRowLength - 1, nextRow) 
+	elif nextX < nextRowLength:
+		return Vector2(nextX, nextRow)
+	elif nextX == nextRowLength:
+		return Vector2(0, nextRow)
 	
 func _getPlayer(player):
 	match player:
