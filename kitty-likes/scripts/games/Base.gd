@@ -2,6 +2,8 @@ extends TileMap
 
 enum Player { PLAYER_1, PLAYER_2 }
 
+signal player_move_finished
+
 const PLAYER_1_START_POSITION = Vector2(1, 1)
 const PLAYER_2_START_POSITION = Vector2(4, 7)
 # Note: this is not an ideal solution, but it's handy due to the way that the isometric tilemap returns the occupied cells and the difficulty of converting this back to an cartesian grid
@@ -59,11 +61,12 @@ func _placePlayer(player, coord):
 	player.position = map_to_world(grid[coord.y][coord.x], true)
 	
 func movePlayer(player, vector):
-	print("moving player")
-	print(vector)
 	var p = _getPlayer(player)
 	var coord = _getPlayerCurrentCoordinates(player)
-	_placePlayer(p, _getNextCoordinates(coord, vector))
+	# TODO figure out how to deal with updating the player's coordinates
+	player1Coordinates = _getNextCoordinates(coord, vector)
+	_placePlayer(p, player1Coordinates)
+	emit_signal("player_move_finished")
 	
 func _getNextCoordinates(current, vector):
 	match vector:

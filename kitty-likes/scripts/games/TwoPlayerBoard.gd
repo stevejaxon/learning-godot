@@ -7,16 +7,22 @@ func _ready():
 	randomize()
 	self.connect("new_random_number", $Spinner, "spin")
 	self.connect("move_player", $Base, "movePlayer")
-	_take_turn($Base.PLAYER_1)
-	
+	#TODO remove hardcoded turns
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+	yield(_take_turn($Base.PLAYER_1), "completed")
+
 func _take_turn(player):
+	# TODO put randomness back in after all of the correct directional handling is resolved
 	#var rand = randi() % 6
-	var rand = 0
-	print(rand)
+	var rand = 3
 	emit_signal("new_random_number", rand)
-	yield(get_node("Spinner"), "spin_animation_finished")
-	print("spin finished")
+	yield($Spinner, "spin_animation_finished")
 	emit_signal("move_player", player, _mapRandomNumberToVector2(rand))
+	#TODO figure out why the signal from a TileMap is not being fired or received
+	#yield($Base, "player_move_finished")
 	
 func _mapRandomNumberToVector2(rand):
 	match rand:
