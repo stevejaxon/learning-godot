@@ -1,0 +1,26 @@
+[gd_resource type="TileSet" load_steps=3 format=2]
+
+[ext_resource path="res://assets/tilesets/food_overlay_blue.png" type="Texture" id=1]
+[ext_resource path="res://assets/tilesets/pet_overlay_blue.png" type="Texture" id=2]
+
+[resource]
+
+0/name = "F"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 65, 89 )
+0/is_autotile = false
+0/occluder_offset = Vector2( 32.5, 44.5 )
+0/navigation_offset = Vector2( 32.5, 44.5 )
+0/shapes = [  ]
+1/name = "P"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 65, 89 )
+1/is_autotile = false
+1/occluder_offset = Vector2( 32.5, 44.5 )
+1/navigation_offset = Vector2( 32.5, 44.5 )
+1/shapes = [  ]
+
