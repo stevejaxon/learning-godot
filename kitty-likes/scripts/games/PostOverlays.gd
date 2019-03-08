@@ -5,3 +5,6 @@ func playerLandedOnCell(player, coord):
 		set_cellv(coord, 0)
 	elif player == Utils.Player.TWO:
 		set_cellv(coord, 1)
+		
+func newPost(player, coord, activity):
+	pass

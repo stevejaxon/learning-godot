@@ -16,8 +16,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Utils="*res://scripts/games/Utils.gd"
 Posts="*res://scripts/games/Posts.gd"
+Players="*res://scripts/games/Players.gd"
 
 [display]
 

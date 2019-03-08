@@ -106,21 +106,21 @@ func _getNextCoordinates(current, vector):
 	
 func _getPlayer(player):
 	match player:
-		Utils.Player.ONE:
+		Players.ONE:
 			return player1Instance
-		Utils.Player.TWO:
+		Players.TWO:
 			return player2Instance
 			
 func _reversePlayerLookup(instance):
 	match instance:
 		player1Instance:
-			return Utils.Player.ONE
+			return Players.ONE
 		player2Instance:
-			return Utils.Player.TWO
+			return Players.TWO
 
 func _getPlayerCurrentCoordinates(player):
 	match player:
-		Utils.Player.ONE:
+		Players.ONE:
 			return player1Coordinates
-		Utils.Player.TWO:
+		Players.TWO:
 			return player2Coordinates
