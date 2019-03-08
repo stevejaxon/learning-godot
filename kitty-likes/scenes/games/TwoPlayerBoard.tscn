@@ -15,6 +15,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Base" type="TileMap" parent="." index="0"]
 
+editor/display_folded = true
 mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 101 )
@@ -65,7 +66,7 @@ _sections_unfolded = [ "Cell", "Z Index" ]
 
 mode = 1
 tile_set = ExtResource( 4 )
-cell_size = Vector2( 65, 101 )
+cell_size = Vector2( 64, 101 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
