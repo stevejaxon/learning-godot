@@ -1,8 +1,7 @@
 extends TileMap
 
-enum Player { PLAYER_1, PLAYER_2 }
-
 signal player_move_finished
+signal player_landed_on_cell
 
 const PLAYER_1_START_POSITION = Vector2(2, 2)
 const PLAYER_2_START_POSITION = Vector2(4, 7)
@@ -24,6 +23,7 @@ onready var Player2Scene = preload("res://scenes/Player2.tscn")
 onready var Sorter = $YSort
 
 func _ready():
+	self.connect("player_landed_on_cell", get_node("../PostOverlays"), "playerLandedOnCell")
 	_createGridIndex()
 	_createPlayers()
 	
@@ -58,7 +58,9 @@ func _createPlayers():
 	add_child(player2Instance)
 	
 func _placePlayer(player, coord):
-	player.position = map_to_world(grid[coord.y][coord.x], true)
+	var boardCoords = grid[coord.y][coord.x]
+	player.position = map_to_world(boardCoords, true)
+	emit_signal("player_landed_on_cell", _reversePlayerLookup(player), boardCoords)
 	
 func movePlayer(player, vector):
 	var p = _getPlayer(player)
@@ -95,14 +97,21 @@ func _getNextCoordinates(current, vector):
 	
 func _getPlayer(player):
 	match player:
-		PLAYER_1:
+		Utils.Player.ONE:
 			return player1Instance
-		PLAYER_2:
+		Utils.Player.TWO:
 			return player2Instance
 			
+func _reversePlayerLookup(instance):
+	match instance:
+		player1Instance:
+			return Utils.Player.ONE
+		player2Instance:
+			return Utils.Player.TWO
+
 func _getPlayerCurrentCoordinates(player):
 	match player:
-		PLAYER_1:
+		Utils.Player.ONE:
 			return player1Coordinates
-		PLAYER_2:
+		Utils.Player.TWO:
 			return player2Coordinates

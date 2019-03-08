@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/tilesets/food_overlay_blue.png" type="Texture" id=3]
 [ext_resource path="res://assets/tilesets/pet_overlay_blue.png" type="Texture" id=4]
 
-[node name="PostOverlays" type="Node2D" index="0"]
+[node name="PostOverlays" type="Node2D"]
 
 [node name="BlueBase" type="Sprite" parent="." index="0"]
 
