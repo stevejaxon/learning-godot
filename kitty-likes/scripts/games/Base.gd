@@ -1,7 +1,7 @@
 extends TileMap
 
 signal player_move_finished
-signal player_landed_on_cell
+signal new_post_activity
 
 const PLAYER_1_START_POSITION = Vector2(2, 2)
 const PLAYER_2_START_POSITION = Vector2(4, 7)
@@ -12,6 +12,7 @@ var tile_size = get_cell_size()
 
 # Note: if more rows are added to the board this needs to be updated too
 var grid = [[],[],[],[],[],[],[],[],[]]
+var boardState = [[],[],[],[],[],[],[],[],[]]
 var player1Instance
 var player1Coordinates
 var player2Instance
@@ -19,13 +20,19 @@ var player2Coordinates
 
 onready var Player1Scene = preload("res://scenes/Player1.tscn")
 onready var Player2Scene = preload("res://scenes/Player2.tscn")
+onready var Activity = preload("res://scripts/games/Activity.gd")
 
 onready var Sorter = $YSort
 
 func _ready():
-	self.connect("player_landed_on_cell", get_node("../PostOverlays"), "playerLandedOnCell")
+	self.connect("new_post_activity", get_node("../PostOverlays"), "playerLandedOnCell")
 	_createGridIndex()
 	_createPlayers()
+	
+func newPost(_player, _activity):
+	var coord = _getPlayerCurrentCoordinates(_player)
+	boardState[coord.y][coord.x] = Activity.new(_player, _activity)
+	print(boardState)
 	
 func _createGridIndex():
 	var currentY = 0
@@ -41,6 +48,8 @@ func _createGridIndex():
 			row = currentRow
 		
 		grid[row].append(coord)
+		#Also initialise the board state, as blank, at the same time
+		boardState[row].append(null)
 		row = row + 1
 		
 	for row in grid:
@@ -60,7 +69,7 @@ func _createPlayers():
 func _placePlayer(player, coord):
 	var boardCoords = grid[coord.y][coord.x]
 	player.position = map_to_world(boardCoords, true)
-	emit_signal("player_landed_on_cell", _reversePlayerLookup(player), boardCoords)
+	emit_signal("new_post_activity", _reversePlayerLookup(player), boardCoords)
 	
 func movePlayer(player, vector):
 	var p = _getPlayer(player)

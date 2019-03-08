@@ -2,13 +2,16 @@ extends Node2D
 
 signal new_random_number
 signal move_player
+signal new_post_created
 
 func _ready():
 	randomize()
 	self.connect("new_random_number", $Spinner, "spin")
 	self.connect("move_player", $Base, "movePlayer")
+	self.connect("new_post_created", $Base, "newPost")
 		
 	#TODO remove hardcoded turns
+	emit_signal("new_post_created", Utils.Player.ONE, Posts.FOOD)
 	yield(_take_turn(Utils.Player.ONE), "completed")
 	yield(_take_turn(Utils.Player.ONE), "completed")
 	yield(_take_turn(Utils.Player.ONE), "completed")
