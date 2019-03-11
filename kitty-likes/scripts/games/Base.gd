@@ -68,18 +68,29 @@ func _createPlayers():
 	_placePlayer(player2Instance, player2Coordinates)
 	add_child(player2Instance)
 	
-func _placePlayer(player, coord):
+func _placePlayer(player, coord, intermediate = false):
 	var boardCoords = grid[coord.y][coord.x]
 	player.position = map_to_world(boardCoords, true)
-	emit_signal("new_post_activity", _reversePlayerLookup(player), boardCoords)
+	emit_signal("player_moved", _reversePlayerLookup(player), boardCoords, intermediate)
 	
 func movePlayer(player, vector):
 	var p = _getPlayer(player)
 	var coord = _getPlayerCurrentCoordinates(player)
-	# TODO figure out how to deal with updating the player's coordinates
-	player1Coordinates = _getNextCoordinates(coord, vector)
-	_placePlayer(p, player1Coordinates)
+	var finalPlayerCoords = _movePlayer(p, coord, vector)
+	_updatePlayerCoordinates(player, finalPlayerCoords)
 	emit_signal("player_move_finished")
+
+# Recursive function, called by the exposed movePlayer function, that deals with the scenario when a player lands on an previously occupied cell
+func _movePlayer(playerInstance, coord, vector):
+	var playerCoordinates = _getNextCoordinates(coord, vector)
+	var boardCellState = boardState[playerCoordinates.y][playerCoordinates.x]
+	if boardCellState == null:
+		_placePlayer(playerInstance, playerCoordinates)
+		return playerCoordinates
+	else:
+		# TODO check if existing liked other player's post
+		_placePlayer(playerInstance, playerCoordinates, true)
+		return _movePlayer(playerInstance, playerCoordinates, vector)
 	
 func _getNextCoordinates(current, vector):
 	# Determine the next row that the player will move to
@@ -126,3 +137,10 @@ func _getPlayerCurrentCoordinates(player):
 			return player1Coordinates
 		Players.TWO:
 			return player2Coordinates
+			
+func _updatePlayerCoordinates(player, coords):
+	match player:
+		Players.ONE:
+			player1Coordinates = coords
+		Players.TWO:
+			player2Coordinates = coords

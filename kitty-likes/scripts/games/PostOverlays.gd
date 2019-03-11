@@ -14,7 +14,9 @@ var PLAYER_TO_ACTIVITY_DICTIONARY = {
 	}
 }
 
-func playerLandedOnCell(player, coord):
+func playerLandedOnCell(player, coord, intermediateStep = false):
+	if intermediateStep:
+		return
 	if player == Players.ONE:
 		set_cellv(coord, 0)
 	elif player == Players.TWO:
