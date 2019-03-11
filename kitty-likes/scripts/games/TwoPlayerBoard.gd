@@ -9,13 +9,15 @@ func _ready():
 	self.connect("new_random_number", $Spinner, "spin")
 	self.connect("move_player", $Base, "movePlayer")
 	self.connect("new_post_created", $Base, "newPost")
-	self.connect("new_post_created", $PostOverlays, "newPost")
 		
 	#TODO remove hardcoded turns
 	emit_signal("new_post_created", Players.ONE, Posts.FOOD)
 	yield(_take_turn(Players.ONE), "completed")
+	emit_signal("new_post_created", Players.ONE, Posts.TRAVEL)
 	yield(_take_turn(Players.ONE), "completed")
+	emit_signal("new_post_created", Players.ONE, Posts.SELFIE)
 	yield(_take_turn(Players.ONE), "completed")
+	emit_signal("new_post_created", Players.ONE, Posts.FOOD)
 	yield(_take_turn(Players.ONE), "completed")
 	yield(_take_turn(Players.ONE), "completed")
 	yield(_take_turn(Players.ONE), "completed")

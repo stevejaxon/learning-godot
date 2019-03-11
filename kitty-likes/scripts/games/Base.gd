@@ -1,7 +1,8 @@
 extends TileMap
 
 signal player_move_finished
-signal new_post_activity
+signal player_moved
+signal new_post
 
 const PLAYER_1_START_POSITION = Vector2(2, 2)
 const PLAYER_2_START_POSITION = Vector2(4, 7)
@@ -25,14 +26,15 @@ onready var Activity = preload("res://scripts/games/Activity.gd")
 onready var Sorter = $YSort
 
 func _ready():
-	self.connect("new_post_activity", get_node("../PostOverlays"), "playerLandedOnCell")
+	self.connect("player_moved", get_node("../PostOverlays"), "playerLandedOnCell")
+	self.connect("new_post", get_node("../PostOverlays"), "newPost")
 	_createGridIndex()
 	_createPlayers()
 	
 func newPost(_player, _activity):
 	var coord = _getPlayerCurrentCoordinates(_player)
 	boardState[coord.y][coord.x] = Activity.new(_player, _activity)
-	print(boardState)
+	emit_signal("new_post", _player, grid[coord.y][coord.x], _activity)
 	
 func _createGridIndex():
 	var currentY = 0
