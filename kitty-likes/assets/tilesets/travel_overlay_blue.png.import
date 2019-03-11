@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pet_overlay_blue.png-21123739d4e3107b93b6d734ccaa20ca.stex"
+path="res://.import/travel_overlay_blue.png-7144d61504620e07f2e0cff30ff53d89.stex"
 
 [deps]
 
-source_file="res://assets/tilesets/pet_overlay_blue.png"
-dest_files=[ "res://.import/pet_overlay_blue.png-21123739d4e3107b93b6d734ccaa20ca.stex" ]
+source_file="res://assets/tilesets/travel_overlay_blue.png"
+dest_files=[ "res://.import/travel_overlay_blue.png-7144d61504620e07f2e0cff30ff53d89.stex" ]
 
 [params]
 
@@ -20,10 +20,10 @@ flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
