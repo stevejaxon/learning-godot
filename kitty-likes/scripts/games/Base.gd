@@ -89,6 +89,7 @@ func _movePlayer(playerInstance, coord, vector):
 		return playerCoordinates
 	else:
 		# TODO check if existing liked other player's post
+		# TODO deal with decide what to do in the case of infinite recursion - no available space in a direction
 		_placePlayer(playerInstance, playerCoordinates, true)
 		return _movePlayer(playerInstance, playerCoordinates, vector)
 	
