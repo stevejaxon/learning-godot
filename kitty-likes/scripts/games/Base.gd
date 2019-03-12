@@ -5,7 +5,7 @@ signal player_moved
 signal new_post
 
 const PLAYER_1_START_POSITION = Vector2(2, 2)
-const PLAYER_2_START_POSITION = Vector2(4, 7)
+const PLAYER_2_START_POSITION = Vector2(4, 6)
 # Note: this is not an ideal solution, but it's handy due to the way that the isometric tilemap returns the occupied cells and the difficulty of converting this back to an cartesian grid
 const BOARD_ROW_SIZES = [5,6,7,8,9,8,7,6,5]
 
