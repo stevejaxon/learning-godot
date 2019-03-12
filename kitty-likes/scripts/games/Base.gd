@@ -18,10 +18,12 @@ var player1Instance
 var player1Coordinates
 var player2Instance
 var player2Coordinates
+var likeAnimationInstance
 
 onready var Player1Scene = preload("res://scenes/Player1.tscn")
 onready var Player2Scene = preload("res://scenes/Player2.tscn")
 onready var Activity = preload("res://scripts/games/Activity.gd")
+onready var LikeAnimation = preload("res://scenes/particles/Likes.tscn")
 
 onready var Sorter = $YSort
 
@@ -30,6 +32,7 @@ func _ready():
 	self.connect("new_post", get_node("../PostOverlays"), "newPost")
 	_createGridIndex()
 	_createPlayers()
+	_createLikeAnimation()
 	
 func newPost(_player, _activity):
 	var coord = _getPlayerCurrentCoordinates(_player)
@@ -68,6 +71,11 @@ func _createPlayers():
 	_placePlayer(player2Instance, player2Coordinates)
 	add_child(player2Instance)
 	
+func _createLikeAnimation():
+	likeAnimationInstance = LikeAnimation.instance()
+	likeAnimationInstance.set_emitting(false)
+	add_child(likeAnimationInstance)
+	
 func _placePlayer(player, coord, intermediate = false):
 	var boardCoords = grid[coord.y][coord.x]
 	player.position = map_to_world(boardCoords, true)
@@ -91,6 +99,9 @@ func _movePlayer(playerInstance, coord, vector):
 		# TODO check if existing liked other player's post
 		# TODO deal with decide what to do in the case of infinite recursion - no available space in a direction
 		_placePlayer(playerInstance, playerCoordinates, true)
+		if _reversePlayerLookup(playerInstance) != boardCellState.getPlayer():
+			likeAnimationInstance.position = playerInstance.position
+			likeAnimationInstance.set_emitting(true)
 		return _movePlayer(playerInstance, playerCoordinates, vector)
 	
 func _getNextCoordinates(current, vector):
