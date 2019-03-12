@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blue_button09.png-cb6e0d1488a5bf32c5cf2f79d6219587.stex"
+path="res://.import/button_disabled.png-d7a8bf634ba2e9ccc93dac1790d254f8.stex"
 
 [deps]
 
-source_file="res://assets/ui/blue_button09.png"
-dest_files=[ "res://.import/blue_button09.png-cb6e0d1488a5bf32c5cf2f79d6219587.stex" ]
+source_file="res://assets/ui/button_disabled.png"
+dest_files=[ "res://.import/button_disabled.png-d7a8bf634ba2e9ccc93dac1790d254f8.stex" ]
 
 [params]
 
@@ -20,10 +20,10 @@ flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

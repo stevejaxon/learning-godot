@@ -1,31 +1,34 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/ui/blue_button09.png" type="Texture" id=1]
-[ext_resource path="res://assets/ui/blue_button10.png" type="Texture" id=2]
-[ext_resource path="res://assets/ui/plus.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/button.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/button_hover.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/button_disabled.png" type="Texture" id=4]
 
-[node name="GameControls" type="Control"]
+[node name="GameControls" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+[node name="Group" type="VBoxContainer" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
 anchor_bottom = 1.0
-margin_top = -49.0
-margin_right = 61.0
+margin_top = -100.0
+margin_right = 100.0
+grow_vertical = 0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -33,33 +36,35 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Grow Direction" ]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 61.0
-margin_bottom = 49.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer" index="0"]
+[node name="Row" type="HBoxContainer" parent="Group" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 49.0
-margin_bottom = 49.0
+margin_right = 308.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Grow Direction" ]
+
+[node name="TextureButton" type="TextureButton" parent="Group/Row" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -73,85 +78,314 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 2 )
-_sections_unfolded = [ "Margin", "Textures" ]
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
 
-[node name="Sprite" type="Sprite" parent="VBoxContainer/HBoxContainer/TextureButton" index="0"]
+[node name="Sprite" type="Sprite" parent="Group/Row/TextureButton" index="0"]
 
-position = Vector2( -1, -4 )
-texture = ExtResource( 3 )
+position = Vector2( 25, 25 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer" index="1"]
+[node name="TextureButton2" type="TextureButton" parent="Group/Row" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 53.0
-margin_right = 53.0
-margin_bottom = 49.0
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
 
-[node name="Sprite" type="Sprite" parent="VBoxContainer/HBoxContainer/TextureButton2" index="0"]
+[node name="Sprite" type="Sprite" parent="Group/Row/TextureButton2" index="0"]
 
-[node name="TextureButton3" type="TextureButton" parent="VBoxContainer/HBoxContainer" index="2"]
+position = Vector2( 25, 25 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="TextureButton3" type="TextureButton" parent="Group/Row" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 57.0
-margin_right = 57.0
-margin_bottom = 49.0
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
 
-[node name="Sprite" type="Sprite" parent="VBoxContainer/HBoxContainer/TextureButton3" index="0"]
+[node name="Sprite" type="Sprite" parent="Group/Row/TextureButton3" index="0"]
 
-[node name="TextureButton4" type="TextureButton" parent="VBoxContainer/HBoxContainer" index="3"]
+position = Vector2( 25, 25 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Row2" type="HBoxContainer" parent="Group" index="1"]
 
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 61.0
-margin_right = 61.0
-margin_bottom = 49.0
+margin_top = 104.0
+margin_right = 308.0
+margin_bottom = 204.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Grow Direction" ]
+
+[node name="TextureButton" type="TextureButton" parent="Group/Row2" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
 
-[node name="Sprite" type="Sprite" parent="VBoxContainer/HBoxContainer/TextureButton4" index="0"]
+[node name="Sprite" type="Sprite" parent="Group/Row2/TextureButton" index="0"]
+
+position = Vector2( 25, 25 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="TextureButton2" type="TextureButton" parent="Group/Row2" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Sprite" type="Sprite" parent="Group/Row2/TextureButton2" index="0"]
+
+position = Vector2( 25, 25 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="TextureButton3" type="TextureButton" parent="Group/Row2" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Sprite" type="Sprite" parent="Group/Row2/TextureButton3" index="0"]
+
+position = Vector2( 25, 25 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Row3" type="HBoxContainer" parent="Group" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 208.0
+margin_right = 308.0
+margin_bottom = 308.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor", "Grow Direction" ]
+
+[node name="TextureButton" type="TextureButton" parent="Group/Row3" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Sprite" type="Sprite" parent="Group/Row3/TextureButton" index="0"]
+
+position = Vector2( 25, 25 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="TextureButton2" type="TextureButton" parent="Group/Row3" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Sprite" type="Sprite" parent="Group/Row3/TextureButton2" index="0"]
+
+position = Vector2( 25, 25 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="TextureButton3" type="TextureButton" parent="Group/Row3" index="2"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Sprite" type="Sprite" parent="Group/Row3/TextureButton3" index="0"]
+
+position = Vector2( 25, 25 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
 
 
