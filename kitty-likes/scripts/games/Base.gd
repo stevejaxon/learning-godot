@@ -18,7 +18,6 @@ var player1Instance
 var player1Coordinates
 var player2Instance
 var player2Coordinates
-var likeAnimationInstance
 
 onready var Player1Scene = preload("res://scenes/Player1.tscn")
 onready var Player2Scene = preload("res://scenes/Player2.tscn")
@@ -32,7 +31,6 @@ func _ready():
 	self.connect("new_post", get_node("../PostOverlays"), "newPost")
 	_createGridIndex()
 	_createPlayers()
-	_createLikeAnimation()
 	
 func newPost(_player, _activity):
 	var coord = _getPlayerCurrentCoordinates(_player)
@@ -60,7 +58,8 @@ func _createGridIndex():
 	for row in grid:
 		# The cells are returned from right to left so we need to invert them to get the expected format
 		row.invert()
-		
+
+
 func _createPlayers():
 	player1Instance = Player1Scene.instance()
 	player1Coordinates = PLAYER_1_START_POSITION
@@ -70,17 +69,14 @@ func _createPlayers():
 	player2Coordinates = PLAYER_2_START_POSITION
 	_placePlayer(player2Instance, player2Coordinates)
 	add_child(player2Instance)
-	
-func _createLikeAnimation():
-	likeAnimationInstance = LikeAnimation.instance()
-	likeAnimationInstance.set_emitting(false)
-	add_child(likeAnimationInstance)
-	
+
+
 func _placePlayer(player, coord, intermediate = false):
 	var boardCoords = grid[coord.y][coord.x]
 	player.position = map_to_world(boardCoords, true)
 	emit_signal("player_moved", _reversePlayerLookup(player), boardCoords, intermediate)
-	
+
+
 func movePlayer(player, vector):
 	var p = _getPlayer(player)
 	var coord = _getPlayerCurrentCoordinates(player)
@@ -100,10 +96,10 @@ func _movePlayer(playerInstance, coord, vector):
 		# TODO deal with decide what to do in the case of infinite recursion - no available space in a direction
 		_placePlayer(playerInstance, playerCoordinates, true)
 		if _reversePlayerLookup(playerInstance) != boardCellState.getPlayer():
-			likeAnimationInstance.position = playerInstance.position
-			likeAnimationInstance.set_emitting(true)
+			_createLikeAnimation(playerInstance.position)
 		return _movePlayer(playerInstance, playerCoordinates, vector)
-	
+
+
 func _getNextCoordinates(current, vector):
 	# Determine the next row that the player will move to
 	var nextRow = current.y + vector.y
@@ -128,14 +124,23 @@ func _getNextCoordinates(current, vector):
 		return Vector2(nextX, nextRow)
 	elif nextX == nextRowLength:
 		return Vector2(0, nextRow)
-	
+
+
+func _createLikeAnimation(coord):
+	var likeAnimationInstance = LikeAnimation.instance()
+	likeAnimationInstance.position = coord
+	add_child(likeAnimationInstance)
+	likeAnimationInstance.set_emitting(true)
+
+
 func _getPlayer(player):
 	match player:
 		Players.ONE:
 			return player1Instance
 		Players.TWO:
 			return player2Instance
-			
+
+
 func _reversePlayerLookup(instance):
 	match instance:
 		player1Instance:
@@ -143,13 +148,15 @@ func _reversePlayerLookup(instance):
 		player2Instance:
 			return Players.TWO
 
+
 func _getPlayerCurrentCoordinates(player):
 	match player:
 		Players.ONE:
 			return player1Coordinates
 		Players.TWO:
 			return player2Coordinates
-			
+
+
 func _updatePlayerCoordinates(player, coords):
 	match player:
 		Players.ONE:
