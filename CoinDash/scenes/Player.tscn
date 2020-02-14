@@ -1,0 +1,51 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/player/hurt/player-hurt-2.png" type="Texture" id=1]
+[ext_resource path="res://assets/player/run/player-run-2.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/hurt/player-hurt-1.png" type="Texture" id=3]
+[ext_resource path="res://assets/player/idle/player-idle-1.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/run/player-run-1.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/idle/player-idle-2.png" type="Texture" id=6]
+[ext_resource path="res://assets/player/idle/player-idle-3.png" type="Texture" id=7]
+[ext_resource path="res://assets/player/idle/player-idle-4.png" type="Texture" id=8]
+[ext_resource path="res://assets/player/run/player-run-3.png" type="Texture" id=9]
+[ext_resource path="res://assets/player/run/player-run-4.png" type="Texture" id=10]
+[ext_resource path="res://assets/player/run/player-run-6.png" type="Texture" id=11]
+[ext_resource path="res://assets/player/run/player-run-5.png" type="Texture" id=12]
+[ext_resource path="res://scenes/Player.gd" type="Script" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "run",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 7.62975
+height = 2.81643
+
+[node name="Player" type="Area2D"]
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 350
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
