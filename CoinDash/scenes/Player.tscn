@@ -19,7 +19,7 @@ animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
@@ -33,19 +33,21 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 7.62975
-height = 2.81643
+radius = 7.875
+height = 7.32911
 
 [node name="Player" type="Area2D"]
 script = ExtResource( 13 )
-__meta__ = {
-"_edit_group_": true
-}
 speed = 350
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "run"
+animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0981026, 5.15035 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+[connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
