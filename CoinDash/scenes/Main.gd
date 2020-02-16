@@ -65,3 +65,4 @@ func game_over():
 		coin.queue_free()
 	$HUD.show_game_over()
 	$Player.stop()
+	$Player.hide()

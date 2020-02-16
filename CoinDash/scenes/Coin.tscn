@@ -18,7 +18,7 @@ animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
-"speed": 8.0
+"speed": 4.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -35,6 +35,11 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
+frame = 1
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
