@@ -15,7 +15,7 @@ func _ready():
 	$Player.screensize = screensize
 	$Player.hide()
 	
-func _process(delta):
+func _process(_delta):
 	if playing and $CoinContainer.get_child_count() == 0:
 		level += 1
 		time_left += 5
@@ -30,15 +30,38 @@ func new_game():
 	$Player.show()
 	$GameTimer.start()
 	spawn_coins()
-	#$HUD.update_score(score)
-	#$HUD.update_timer(time_left)
+	$HUD.update_score(score)
+	$HUD.update_timer(time_left)
 
 func spawn_coins():
-	for i in range(4 + level):
+	for _i in range(4 + level):
 		var c = Coin.instance()
 		$CoinContainer.add_child(c)
-		c.screensize = screensize
+		#c.screensize = screensize
 		c.position = Vector2(
 			rand_range(0, screensize.x), 
 			rand_range(0, screensize.y)
 		)
+
+func _on_GameTimer_timeout():
+	time_left -= 1
+	$HUD.update_timer(time_left)
+	if time_left <= 0:
+		game_over()
+
+func _on_Player_pickup():
+	score += 1
+	$HUD.update_score(score)
+	
+
+func _on_Player_hurt():
+	game_over()
+	
+
+func game_over():
+	playing = false
+	$GameTimer.stop()
+	for coin in $CoinContainer.get_children():
+		coin.queue_free()
+	$HUD.show_game_over()
+	$Player.stop()
