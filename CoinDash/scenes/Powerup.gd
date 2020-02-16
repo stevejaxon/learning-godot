@@ -15,6 +15,12 @@ func pickup():
 func _on_Tween_tween_completed(_object, _key):
 	queue_free()
 
+func _on_Powerup_area_entered(area):
+	if area.is_in_group("onstacles"):
+		position = Vector2(rand_range(0, screen_size.x), rand_range(0, screen_size.y))
+
+func _on_Lifetime_timeout():
+	queue_free()
 
 func _on_Timer_timeout():
 	$AnimatedSprite.frame = 0

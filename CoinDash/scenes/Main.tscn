@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/grass.png" type="Texture" id=2]
@@ -8,10 +8,14 @@
 [ext_resource path="res://assets/audio/Coin.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/audio/Level.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/audio/Hit.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/Powerup.wav" type="AudioStream" id=9]
+[ext_resource path="res://scenes/Powerup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Cactus.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
 Coin = ExtResource( 4 )
+Powerup = ExtResource( 10 )
 playtime = 30
 
 [node name="Background" type="TextureRect" parent="."]
@@ -42,7 +46,24 @@ stream = ExtResource( 7 )
 
 [node name="GameEndSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="PowerupTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PowerupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Cactus" parent="." groups=[
+"obstacles",
+] instance=ExtResource( 11 )]
+position = Vector2( 339.996, 205.148 )
+
+[node name="Cactus2" parent="." groups=[
+"obstacles",
+] instance=ExtResource( 11 )]
+position = Vector2( 80.5255, 506.16 )
 [connection signal="hurt" from="Player" to="." method="_on_Player_hurt"]
 [connection signal="pickup" from="Player" to="." method="_on_Player_pickup"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="timeout" from="PowerupTimer" to="." method="_on_PowerupTimer_timeout"]
