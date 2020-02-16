@@ -34,6 +34,7 @@ func new_game():
 	$HUD.update_timer(time_left)
 
 func spawn_coins():
+	$LevelSound.play()
 	for _i in range(4 + level):
 		var c = Coin.instance()
 		$CoinContainer.add_child(c)
@@ -51,6 +52,7 @@ func _on_GameTimer_timeout():
 
 func _on_Player_pickup():
 	score += 1
+	$CoinSound.play()
 	$HUD.update_score(score)
 	
 
@@ -61,6 +63,7 @@ func _on_Player_hurt():
 func game_over():
 	playing = false
 	$GameTimer.stop()
+	$GameEndSound.play()
 	for coin in $CoinContainer.get_children():
 		coin.queue_free()
 	$HUD.show_game_over()
