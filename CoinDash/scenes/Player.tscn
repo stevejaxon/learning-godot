@@ -21,15 +21,15 @@ animations = [ {
 "name": "idle",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 6.0
+}, {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "run",
 "speed": 8.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -42,7 +42,7 @@ speed = 350
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "idle"
+animation = "hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0981026, 5.15035 )
@@ -51,3 +51,4 @@ __meta__ = {
 "_edit_group_": true
 }
 [connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

@@ -77,8 +77,6 @@ func game_over():
 		coin.queue_free()
 	$HUD.show_game_over()
 	$Player.stop()
-	$Player.hide()
-
 
 func _on_PowerupTimer_timeout():
 	var p = Powerup.instance()

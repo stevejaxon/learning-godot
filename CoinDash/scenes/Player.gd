@@ -7,6 +7,7 @@ signal hurt
 export (int) var speed
 var velocity = Vector2()
 var screensize = Vector2(480, 720)
+var isHurt = false
 
 func _process(delta):
 	get_input()
@@ -18,7 +19,7 @@ func _process(delta):
 	if velocity.length() > 0:
 		$AnimatedSprite.play("run")
 		$AnimatedSprite.flip_h = velocity.x < 0
-	else:
+	elif !isHurt:
 		$AnimatedSprite.play("idle")
 
 func get_input():
@@ -36,12 +37,16 @@ func get_input():
 
 func start(pos):
 	set_process(true)
+	isHurt = false
 	position = pos
 	$AnimatedSprite.play("idle")
 	
 func stop():
-	$AnimatedSprite.play("hurt")
 	set_process(false)
+	isHurt = true
+	$AnimatedSprite.play("hurt")
+	yield($AnimatedSprite, "animation_finished")
+	$AnimatedSprite.hide()
 
 func _on_Player_area_entered(area):
 	if area.is_in_group("coins"):
@@ -49,7 +54,10 @@ func _on_Player_area_entered(area):
 		emit_signal("pickup", "coin")
 	if area.is_in_group("obstacles"):
 		emit_signal("hurt")
-		stop()
 	if area.is_in_group("powerups"):
 		area.pickup()
 		emit_signal("pickup", "powerup")
+
+
+func _on_AnimatedSprite_animation_finished():
+	print($AnimatedSprite.animation)
