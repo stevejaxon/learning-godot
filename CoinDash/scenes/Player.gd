@@ -37,6 +37,7 @@ func get_input():
 
 func start(pos):
 	set_process(true)
+	$AnimatedSprite.show()
 	isHurt = false
 	position = pos
 	$AnimatedSprite.play("idle")
