@@ -8,5 +8,5 @@ func _ready():
 
 func _process(delta):
 	if can_move:
-		if not move(facing) or randi() % 20 > 5:
+		if not move(facing) or randi() % 10 > 5:
 			facing = moves.keys()[randi() % 4]
