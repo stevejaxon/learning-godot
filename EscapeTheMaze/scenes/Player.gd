@@ -8,7 +8,7 @@ signal win
 #func _ready():
 #	$Sprite.scale = Vector2(1, 1)
 
-func _process(delta):
+func _process(_delta):
 	if can_move:
 		for dir in moves.keys():
 			if Input.is_action_pressed(dir):
