@@ -5,7 +5,6 @@ export (PackedScene) var Pickup
 
 onready var items = $Items
 var doors = []
-var Global = preload("res://Global.gd").new()
 
 func _ready():
 	randomize()
