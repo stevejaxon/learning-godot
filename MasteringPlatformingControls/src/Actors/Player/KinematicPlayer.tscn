@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/industrial.v2.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "jump"
+
+[sub_resource type="Animation" id=2]
+resource_name = "run"
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 8
+region_enabled = true
+region_rect = Rect2( 0, 256, 128, 32 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/jump = SubResource( 1 )
+anims/run = SubResource( 2 )
