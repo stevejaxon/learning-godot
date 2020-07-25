@@ -15,6 +15,8 @@ func _get_configuration_warning():
 		return 'Button text not set'
 	return ''
 
+func _prevent_interaction(_value) -> void:
+	disabled = true
 
 func _on_Button_button_up():
 	emit_signal("scene_transition", target_scene)
