@@ -1,8 +1,38 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/GUI/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/Levels/Level1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/GUI/Title/MenuButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/GUI/SceneTransition.tscn" type="PackedScene" id=4]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -210.0
+margin_top = -24.5
+margin_right = 210.0
+margin_bottom = 24.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_right = 420.0
+margin_bottom = 49.0
+
+[node name="KPButton" parent="CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_right = 420.0
+text = "Kinematic Body Character"
+target_scene = ExtResource( 2 )
+
+[node name="SceneTransition" parent="." instance=ExtResource( 4 )]
