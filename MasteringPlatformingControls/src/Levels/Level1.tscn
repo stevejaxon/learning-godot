@@ -6,7 +6,7 @@
 [node name="Level1" type="Node2D"]
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 58.4807, 1054.94 )
+position = Vector2( 58, 1056 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
