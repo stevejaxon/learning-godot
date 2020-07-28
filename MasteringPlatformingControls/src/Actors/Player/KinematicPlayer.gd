@@ -10,9 +10,12 @@ var horizontal_force: float = 600
 var horizontal_deceleration: float = 1300
 var max_horizontal_speed: float = 200
 
-var velocity = Vector2.ZERO
+const coyote_frames: int = 5
+var current_frame_grace : int = 0
 
-onready var initial_position = global_position
+var is_jumping: bool = false
+
+var velocity = Vector2.ZERO
 
 func _init():
 	calculate_jump_variables(4 * 16, 0.44)
@@ -27,9 +30,18 @@ func _physics_process(delta):
 	# Clamp to the maximum horizontal movement speed.
 	velocity.x = clamp(velocity.x, -max_horizontal_speed, max_horizontal_speed)
 
-	if is_on_floor() and Input.is_action_just_pressed("jump"):
+	
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or current_frame_grace <= coyote_frames): 
 		velocity.y = -jump_impulse_amount
+		is_jumping = true
+		current_frame_grace = coyote_frames+1
+	elif not is_on_floor() and not is_jumping and current_frame_grace <= coyote_frames:
+		velocity.y = 0
+		current_frame_grace += 1
 	else:
+		if is_on_floor():
+			current_frame_grace = 0
+			is_jumping = false
 		velocity.y += gravity * delta
 
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, FLOOR_NORMAL)
