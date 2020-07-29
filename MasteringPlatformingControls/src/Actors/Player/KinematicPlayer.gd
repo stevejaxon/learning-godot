@@ -13,7 +13,7 @@ var horizontal_force: float = 600
 var horizontal_deceleration: float = 1300
 var max_horizontal_speed: float = 200
 
-const coyote_frames: int = 5
+const coyote_frames: int = 3
 var current_frame_grace : int = 0
 
 var is_jumping: bool = false
@@ -54,9 +54,6 @@ func calculate_jump_variables(height: float, time: float) -> void:
 	var delta = 1.0 / ProjectSettings.get_setting("physics/common/physics_fps")
 	gravity = (2 * height) / pow(time, 2.0)
 	jump_impulse_amount = sqrt(2 * gravity * height)
-	
-	print("gravity: " + str(gravity))
-	print("jump_vel: " + str(jump_impulse_amount))
 
 
 
