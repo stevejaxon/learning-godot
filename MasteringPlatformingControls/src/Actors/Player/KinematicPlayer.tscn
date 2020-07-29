@@ -91,5 +91,4 @@ shape = SubResource( 5 )
 
 [node name="PositionMarkerTimer" type="Timer" parent="."]
 wait_time = 0.05
-autostart = true
 [connection signal="timeout" from="PositionMarkerTimer" to="." method="_on_PositionMarkerTimer_timeout"]

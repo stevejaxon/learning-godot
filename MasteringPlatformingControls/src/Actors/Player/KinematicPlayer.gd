@@ -37,6 +37,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or current_frame_grace <= coyote_frames): 
 		velocity.y = -jump_impulse_amount
 		is_jumping = true
+		if is_on_floor():
+			display_marker(0)
+		elif current_frame_grace != 0:
+			display_marker(1)
 		current_frame_grace = coyote_frames+1
 	elif not is_on_floor() and not is_jumping and current_frame_grace <= coyote_frames:
 		velocity.y = 0
@@ -55,9 +59,11 @@ func calculate_jump_variables(height: float, time: float) -> void:
 	gravity = (2 * height) / pow(time, 2.0)
 	jump_impulse_amount = sqrt(2 * gravity * height)
 
-
-
 func _on_PositionMarkerTimer_timeout():
+	display_marker(0)
+
+func display_marker(marker_type: int):
 	var marker: PositionMarker = PositionMarker.instance()
 	marker.set_global_position(global_position)
+	marker.set_type(marker_type)
 	emit_signal("mark_position", marker)
