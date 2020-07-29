@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
+signal mark_position
+
 const FLOOR_NORMAL = Vector2.UP
+const PositionMarker = preload("res://src/Actors/Player/PositionMarker.tscn")
 
 var gravity: float = 0
 var vertical_acceleration: float = 0
@@ -54,3 +57,10 @@ func calculate_jump_variables(height: float, time: float) -> void:
 	
 	print("gravity: " + str(gravity))
 	print("jump_vel: " + str(jump_impulse_amount))
+
+
+
+func _on_PositionMarkerTimer_timeout():
+	var marker: PositionMarker = PositionMarker.instance()
+	marker.set_global_position(global_position)
+	emit_signal("mark_position", marker)

@@ -88,3 +88,8 @@ position = Vector2( 0, -6 )
 shape = SubResource( 5 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
+
+[node name="PositionMarkerTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+[connection signal="timeout" from="PositionMarkerTimer" to="." method="_on_PositionMarkerTimer_timeout"]
