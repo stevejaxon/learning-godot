@@ -34,20 +34,19 @@ func _physics_process(delta):
 	velocity.x = clamp(velocity.x, -max_horizontal_speed, max_horizontal_speed)
 
 	
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or current_frame_grace <= coyote_frames): 
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or not $CoyoteTimer.is_stopped()): 
 		velocity.y = -jump_impulse_amount
 		is_jumping = true
 		if is_on_floor():
 			display_marker(0)
-		elif current_frame_grace != 0:
+		else:
 			display_marker(1)
-		current_frame_grace = coyote_frames+1
-	elif not is_on_floor() and not is_jumping and current_frame_grace <= coyote_frames:
+		$CoyoteTimer.stop()
+	elif not is_on_floor() and not is_jumping and $CoyoteTimer.is_stopped():
 		velocity.y = 0
-		current_frame_grace += 1
+		$CoyoteTimer.start()
 	else:
 		if is_on_floor():
-			current_frame_grace = 0
 			is_jumping = false
 		velocity.y += gravity * delta
 
