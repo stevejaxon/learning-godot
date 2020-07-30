@@ -32,9 +32,8 @@ func _physics_process(delta):
 		velocity.x += walk * delta
 	# Clamp to the maximum horizontal movement speed.
 	velocity.x = clamp(velocity.x, -max_horizontal_speed, max_horizontal_speed)
-
 	
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or not $CoyoteTimer.is_stopped()): 
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or $CoyoteTimer.time_left > 0): 
 		velocity.y = -jump_impulse_amount
 		is_jumping = true
 		if is_on_floor():
@@ -42,13 +41,14 @@ func _physics_process(delta):
 		else:
 			display_marker(1)
 		$CoyoteTimer.stop()
-	elif not is_on_floor() and not is_jumping and $CoyoteTimer.is_stopped():
+	elif not is_on_floor() and not is_jumping and $CoyoteTimer.time_left == 0:
 		velocity.y = 0
 		$CoyoteTimer.start()
 	else:
-		if is_on_floor():
+		if is_on_floor() and is_jumping:
 			is_jumping = false
-		velocity.y += gravity * delta
+		if $CoyoteTimer.time_left == 0:
+			velocity.y += gravity * delta
 
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, FLOOR_NORMAL)
 	# velocity = move_and_slide(velocity, FLOOR_NORMAL)
