@@ -4,6 +4,7 @@ signal mark_position
 
 const FLOOR_NORMAL = Vector2.UP
 const PositionMarker = preload("res://src/Actors/Player/PositionMarker.tscn")
+enum STATE {IDLE, RUNNING, JUMPING, FALLING, COYOTE_TIME, JUMP_BUFFER, WALL_SLIDE}
 
 var gravity: float = 0
 var vertical_acceleration: float = 0
