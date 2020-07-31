@@ -93,6 +93,6 @@ shape = SubResource( 5 )
 wait_time = 0.05
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.5
 one_shot = true
 [connection signal="timeout" from="PositionMarkerTimer" to="." method="_on_PositionMarkerTimer_timeout"]

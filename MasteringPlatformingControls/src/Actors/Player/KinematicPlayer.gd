@@ -17,7 +17,7 @@ var max_horizontal_speed: float = 200
 const coyote_frames: int = 3
 var current_frame_grace : int = 0
 
-var is_jumping: bool = false
+export var player_state: int = STATE.IDLE
 
 var velocity = Vector2.ZERO
 
@@ -25,30 +25,31 @@ func _init():
 	calculate_jump_variables(4 * 16, 0.44)
 
 func _physics_process(delta):
-	var walk = horizontal_force * (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
+	var horizontal_velocity = horizontal_force * (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
 	# Slow down the player if they're not trying to move.
-	if abs(walk) < horizontal_force * 0.2:
+	if abs(horizontal_velocity) < horizontal_force * 0.2:
 		velocity.x = move_toward(velocity.x, 0, horizontal_deceleration * delta)
 	else:
-		velocity.x += walk * delta
+		velocity.x += horizontal_velocity * delta
 	# Clamp to the maximum horizontal movement speed.
 	velocity.x = clamp(velocity.x, -max_horizontal_speed, max_horizontal_speed)
 	
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or $CoyoteTimer.time_left > 0): 
-		velocity.y = -jump_impulse_amount
-		is_jumping = true
-		if is_on_floor():
-			display_marker(0)
-		else:
-			display_marker(1)
-		$CoyoteTimer.stop()
-	elif not is_on_floor() and not is_jumping and $CoyoteTimer.time_left == 0:
-		velocity.y = 0
-		$CoyoteTimer.start()
-	else:
-		if is_on_floor() and is_jumping:
-			is_jumping = false
-		if $CoyoteTimer.time_left == 0:
+	if player_state == STATE.COYOTE_TIME and $CoyoteTimer.time_left == 0:
+		move_to_falling_state()
+	elif Input.is_action_just_pressed("jump") and player_state == STATE.COYOTE_TIME:
+		move_to_jump_state()
+		display_marker(1)
+		move_to_falling_state()
+	elif Input.is_action_just_pressed("jump") and is_on_floor():
+		move_to_jump_state() 
+		display_marker(0)
+		move_to_falling_state()
+	elif not is_on_floor() and player_state == STATE.RUNNING:
+		move_to_coyote_time_state()
+	elif player_state == STATE.IDLE and abs(velocity.x) > 0:
+		move_to_running_state()
+		
+	if player_state == STATE.RUNNING or player_state == STATE.FALLING or player_state == STATE.IDLE:
 			velocity.y += gravity * delta
 
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, FLOOR_NORMAL)
@@ -67,3 +68,18 @@ func display_marker(marker_type: int):
 	marker.set_global_position(global_position)
 	marker.set_type(marker_type)
 	emit_signal("mark_position", marker)
+
+func move_to_jump_state() -> void:
+	velocity.y = -jump_impulse_amount
+	player_state = STATE.JUMPING
+
+func move_to_falling_state() -> void:
+	player_state = STATE.FALLING
+
+func move_to_coyote_time_state() -> void:
+	velocity.y = 0
+	player_state = STATE.COYOTE_TIME
+	$CoyoteTimer.start()
+
+func move_to_running_state() -> void:
+	player_state = STATE.RUNNING
