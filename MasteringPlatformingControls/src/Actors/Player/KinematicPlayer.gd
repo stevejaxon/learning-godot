@@ -35,19 +35,21 @@ func _physics_process(delta):
 	velocity.x = clamp(velocity.x, -max_horizontal_speed, max_horizontal_speed)
 	
 	if player_state == STATE.COYOTE_TIME and $CoyoteTimer.is_stopped():
+		display_marker(2)
 		move_to_falling_state()
 		apply_gravity(delta)
 	elif Input.is_action_just_pressed("jump") and player_state == STATE.COYOTE_TIME:
 		move_to_jump_state()
-		display_marker(1)
+		display_marker(3)
 	elif Input.is_action_just_pressed("jump") and is_on_floor():
 		move_to_jump_state() 
 		display_marker(0)
 	elif not is_on_floor() and player_state == STATE.RUNNING:
+		display_marker(1)
 		move_to_coyote_time_state()
 	elif player_state == STATE.COYOTE_TIME:
 		pass
-	elif player_state == STATE.IDLE and abs(velocity.x) > 0:
+	elif player_state == STATE.IDLE and abs(velocity.x) > 0 or player_state == STATE.FALLING and is_on_floor():
 		move_to_running_state()
 		apply_gravity(delta)
 	elif velocity.y > 0 and (player_state == STATE.RUNNING or player_state == STATE.JUMPING):
@@ -60,6 +62,7 @@ func _physics_process(delta):
 		apply_gravity(delta)
 
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, FLOOR_NORMAL)
+	display_state()
 	# velocity = move_and_slide(velocity, FLOOR_NORMAL)
 
 func calculate_jump_variables(height: float, time: float) -> void:
@@ -96,3 +99,16 @@ func move_to_idel_state() -> void:
 
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
+
+func display_state():
+	match player_state:
+		STATE.IDLE:
+			set_modulate(Color(0,0,0,1))
+		STATE.RUNNING:
+			set_modulate(Color(0.86,0.3,0.3,1))
+		STATE.COYOTE_TIME:
+			set_modulate(Color(0.34, 0.08, 0.35, 1))
+		STATE.FALLING:
+			set_modulate(Color(0.08, 0.35, 0.2, 1))
+		_:
+			set_modulate(Color(1,1,1,1))
