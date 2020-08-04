@@ -54,6 +54,10 @@ func _physics_process(delta):
 	elif player_state == STATE.COYOTE_TIME:
 		# Don't apply gravity
 		pass
+	elif player_state == STATE.FALLING and is_on_floor() and $JumpBufferTimer.time_left > 0:
+		move_to_jump_state()
+		display_marker(6)
+		$JumpBufferTimer.stop()
 	elif player_state == STATE.IDLE and abs(velocity.x) > 0 or player_state == STATE.FALLING and is_on_floor():
 		move_to_running_state()
 		apply_gravity(delta)
@@ -64,8 +68,9 @@ func _physics_process(delta):
 		move_to_idel_state()
 		apply_gravity(delta)
 	else:
-		if Input.is_action_just_pressed("jump"):
-			display_marker(-1)
+		if Input.is_action_just_pressed("jump") and $JumpBufferTimer.is_stopped():
+			display_marker(4)
+			$JumpBufferTimer.start()
 		apply_gravity(delta)
 
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, FLOOR_NORMAL)
@@ -73,12 +78,8 @@ func _physics_process(delta):
 	# velocity = move_and_slide(velocity, FLOOR_NORMAL)
 
 func calculate_jump_variables(height: float, time: float) -> void:
-	var delta = 1.0 / ProjectSettings.get_setting("physics/common/physics_fps")
 	gravity = (2 * height) / pow(time, 2.0)
 	jump_impulse_amount = sqrt(2 * gravity * height)
-
-func _on_PositionMarkerTimer_timeout():
-	display_marker(0)
 
 func display_marker(marker_type: int):
 	var marker: PositionMarker = PositionMarker.instance()

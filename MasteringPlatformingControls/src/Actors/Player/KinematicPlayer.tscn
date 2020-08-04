@@ -89,10 +89,10 @@ shape = SubResource( 5 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
 
-[node name="PositionMarkerTimer" type="Timer" parent="."]
-wait_time = 0.05
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-[connection signal="timeout" from="PositionMarkerTimer" to="." method="_on_PositionMarkerTimer_timeout"]
