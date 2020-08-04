@@ -19,5 +19,7 @@ func set_type(value: int):
 			set_modulate(Color(0.07, 0.95, 0, 1))
 		INDICATOR.BUFFER:
 			set_modulate(Color(0.95, 0, 0.8, 1))
-		_:
+		INDICATOR.REGULAR:
 			set_modulate(Color(1, 1, 1, 1))
+		_:
+			set_modulate(Color(0, 0, 0, 0))
