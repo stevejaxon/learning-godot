@@ -57,7 +57,7 @@ func _physics_process(delta):
 		move_to_falling_state()
 		apply_gravity(delta)
 	elif is_on_floor() and horizontal_velocity == 0 and not player_state == STATE.IDLE:
-		move_to_idel_state()
+		move_to_idle_state()
 		apply_gravity(delta)
 	else:
 		if Input.is_action_just_pressed("jump") and $JumpBufferTimer.is_stopped():
@@ -74,9 +74,11 @@ func calculate_jump_variables(height: float, time: float) -> void:
 func move_to_jump_state() -> void:
 	velocity.y = -jump_impulse_amount
 	player_state = STATE.JUMPING
+	$AnimationPlayer.play("jump")
 
 func move_to_falling_state() -> void:
 	player_state = STATE.FALLING
+	$AnimationPlayer.play("falling")
 
 func move_to_coyote_time_state() -> void:
 	velocity.y = 0
@@ -85,9 +87,11 @@ func move_to_coyote_time_state() -> void:
 
 func move_to_running_state() -> void:
 	player_state = STATE.RUNNING
+	$AnimationPlayer.play("walk")
 
-func move_to_idel_state() -> void:
+func move_to_idle_state() -> void:
 	player_state = STATE.IDLE
+	$AnimationPlayer.play("idle")
 
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
