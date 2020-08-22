@@ -20,7 +20,7 @@ export var player_state: int = STATE.IDLE
 var velocity = Vector2.ZERO
 
 func _init():
-	calculate_jump_variables(4 * 16, 0.44)
+	calculate_jump_variables(8 * 16, 0.44)
 
 func _physics_process(delta):
 	var horizontal_velocity = horizontal_force * (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
